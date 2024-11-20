@@ -1,0 +1,19 @@
+---
+import Heading from "@/components/Heading.astro"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+---
+
+<BaseLayout>
+  <div class="hero-section container flex h-full flex-col items-center justify-center gap-4">
+    <Heading className="flex flex-col gap-4" as="h1">
+      Page Not Found <span class="order-first text-9xl">404</span></Heading
+    >
+
+    <p class="body-text max-w-prose text-center">
+      The page you are looking for is not available or has been moved. Try a different page or go to
+      homepage with the button below.
+    </p>
+
+    <a href="/" class="button">Go home</a>
+  </div>
+</BaseLayout>

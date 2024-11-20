@@ -1,0 +1,15 @@
+---
+import Heading from "@/components/Heading.astro"
+import PostList from "@/components/PostList.astro"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { getCollection } from "astro:content"
+
+const posts = await getCollection("posts")
+---
+
+<BaseLayout title="Blog | Cornelia Photography">
+  <div class="hero-section container">
+    <Heading as="h1" className="mb-12">My Journal</Heading>
+    <PostList posts={posts} />
+  </div>
+</BaseLayout>

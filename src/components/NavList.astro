@@ -1,0 +1,33 @@
+---
+import type { NavLink } from "@/lib/types"
+import { capitalize, cn } from "@/lib/utils"
+
+type Props = { className?: string; navLinks: NavLink[] }
+
+const currentPath = Astro.url.pathname
+
+const { className, navLinks } = Astro.props
+---
+
+<ul class={cn("flex flex-wrap items-center gap-x-2", className)}>
+  {
+    navLinks.map((navLink) => {
+      const isCurrentPath = currentPath === navLink.path
+
+      return (
+        <li>
+          <a
+            class={cn(
+              "text-sm font-medium uppercase tracking-[.0875rem] transition-all duration-200 hover:text-accent-foreground",
+              className,
+              isCurrentPath && "text-accent-foreground"
+            )}
+            href={navLink.path}
+          >
+            {capitalize(navLink.label)}
+          </a>
+        </li>
+      )
+    })
+  }
+</ul>

@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --background-primary: 0, 22.22%, 96.47%; /* primary bg */
+    --foreground: 180, 1.45%, 40.59%; /* body text */
+    --heading-foreground: 0, 0%, 18.82%; /* heading */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0, 20%, 76.47%; /* button bg */
+    --primary-foreground: 0 0% 100%; /* button text */
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0, 0%, 65.88%; /* muted */
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0, 20%, 76.47%; /* hover effect color */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0, 20%, 76.47%; /* border-color */
+    --input: 0 0% 89.8%;
+    --input-background: 0, 20%, 94.12%; /* input background color */
+    --ring: 0 0% 3.9%;
+    --radius: 0rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background font-sans text-foreground;
+  }
+}
+
+@layer components {
+  /* Text Styles */
+  .content-label {
+    @apply block text-sm font-medium uppercase leading-snug tracking-widest text-accent-foreground;
+  }
+  .italic-text {
+    @apply font-accent font-semibold;
+  }
+  .normalize-text {
+    @apply font-sans font-normal;
+  }
+  .body-text {
+    @apply text-xl font-normal leading-[1.55];
+  }
+  .body-text-sm {
+    @apply text-lg font-normal leading-[1.55];
+  }
+  .text-uppercase {
+    @apply font-serif text-base font-semibold uppercase leading-[1.45] tracking-widest;
+  }
+  .heading {
+    @apply text-center font-serif text-4xl font-normal leading-[1.25] text-heading-foreground;
+  }
+  .subheading {
+    @apply content-label mb-4 block font-sans text-base;
+  }
+
+  .hero-heading {
+    @apply heading max-w-[15ch] text-start text-[2.75rem] md:text-5xl;
+  }
+
+  .blog-preview-heading {
+    @apply font-serif text-xl font-normal leading-[1.4] text-heading-foreground transition-all duration-300 hover:text-accent-foreground md:text-2xl;
+  }
+
+  .button {
+    @apply flex justify-center bg-primary px-7 py-4 font-serif text-sm uppercase tracking-widest text-primary-foreground;
+  }
+
+  /* Form Components */
+  .input {
+    @apply min-h-[3.375rem] bg-input-background px-5 py-2 text-sm placeholder:text-sm focus:outline-border;
+  }
+
+  /* Section Layouts */
+  .hero-section {
+    @apply pb-28 pt-7;
+  }
+  .footer {
+    @apply py-12;
+  }
+  .section {
+    @apply py-28;
+  }
+
+  /* Decorative Elements */
+  .fancy-border {
+    @apply relative before:absolute before:bottom-5 before:left-0 before:right-5 before:top-0 before:border-4 before:border-[hsl(var(--border),_0.5)] before:content-[''];
+  }
+  .fancy-background {
+    @apply bg-gradient-to-r from-[transparent_26%] to-[hsl(var(--background-primary))_26%] pr-7 pt-7 sm:py-12 sm:pr-12;
+  }
+  .fancy-background-bottom {
+    @apply bg-gradient-to-b from-[transparent_63%] to-[hsl(var(--background-primary))_63%] px-12 pb-12;
+  }
+}
+
+/* fonts */
+
+@font-face {
+  font-family: "satoshi";
+  src:
+    url("/fonts/Satoshi-Variable.woff2") format("woff2"),
+    url("/fonts/Satoshi-Variable.woff") format("woff"),
+    url("/fonts/Satoshi-Variable.ttf") format("truetype");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "zodiak";
+  src:
+    url("/fonts/Zodiak-Variable.woff2") format("woff2"),
+    url("/fonts/Zodiak-Variable.woff") format("woff"),
+    url("/fonts/Zodiak-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "zodiak-italic";
+  src:
+    url("/fonts/Zodiak-VariableItalic.woff2") format("woff2"),
+    url("/fonts/Zodiak-VariableItalic.woff") format("woff"),
+    url("/fonts/Zodiak-VariableItalic.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+/* sticky footer */
+
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+html body[data-scroll-locked] {
+  overflow: visible !important;
+  margin-right: 0 !important;
+}
+
+#page-header {
+  flex: 0 0 auto;
+}
+#page-main {
+  flex: 1 0 auto;
+}
+#page-footer {
+  flex: 0 0 auto;
+}

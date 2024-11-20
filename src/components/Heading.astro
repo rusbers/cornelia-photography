@@ -1,0 +1,20 @@
+---
+interface Props {
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+  subheading?: string
+  className?: string
+}
+
+const { as: Tag = "h2", subheading, className } = Astro.props
+---
+
+<Tag class:list={["heading", className]}>
+  {
+    subheading && (
+      <span class="content-label mb-4 block font-sans text-base text-accent-foreground">
+        {subheading}
+      </span>
+    )
+  }
+  <slot />
+</Tag>

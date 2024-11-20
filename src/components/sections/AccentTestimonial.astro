@@ -1,0 +1,31 @@
+---
+import FloralBackground from "../FloralBackground.astro"
+import FrameContainer from "../FrameContainer.astro"
+
+const quote =
+  "We are beyond thankful for how our special day was captured and we will cherish our photographs forever."
+const author = "Stacy & Thomas"
+---
+
+<FloralBackground>
+  <section class="section container">
+    <div class="mx-auto max-w-[50rem]">
+      <FrameContainer className="px-7 py-16 lg:px-4 xl:px-7">
+        <figure class="flex flex-col px-3">
+          <span aria-hidden class="font-serif text-8xl leading-[1.25rem] text-[#cfb7b7]"
+            >&ldquo;</span
+          >
+          <blockquote class="mb-7 flex flex-col gap-7">
+            <p class="main-quote font-serif text-[1.75rem] font-medium leading-snug">
+              &ldquo;{quote}&rdquo;
+            </p>
+          </blockquote>
+          <figcaption class="content-label mb-5 font-medium">
+            <span class="px-2">&mdash;</span>
+            <span class="author">{author}</span>
+          </figcaption>
+        </figure>
+      </FrameContainer>
+    </div>
+  </section>
+</FloralBackground>

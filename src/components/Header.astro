@@ -1,0 +1,40 @@
+---
+import Logo from "./Logo"
+import { isOdd } from "@/lib/utils"
+import { NAVIGATION_LINKS } from "@/lib/constants"
+import { MobileNavigation } from "./MobileNavigation"
+import NavList from "./NavList.astro"
+
+const isArrayLengthOdd = isOdd(NAVIGATION_LINKS.length)
+const midpoint = Math.ceil(NAVIGATION_LINKS.length / 2)
+const shouldUseSimpleLayout = isArrayLengthOdd || NAVIGATION_LINKS.length <= 5
+---
+
+<header
+  id="page-header"
+  class="fixed inset-x-0 top-0 z-[999] min-h-16 border-b border-opacity-20 bg-white/80 backdrop-blur-2xl transition-all lg:block lg:items-center lg:py-6"
+>
+  <MobileNavigation client:load>
+    <NavList
+      className="flex flex-col items-start gap-3 px-6 py-9 text-sm font-medium leading-[1.7] tracking-widest"
+      navLinks={NAVIGATION_LINKS}
+    />
+  </MobileNavigation>
+
+  <div class="container">
+    {
+      shouldUseSimpleLayout ? (
+        <nav class="hidden lg:flex lg:justify-between lg:gap-x-5">
+          <Logo className="h-[88px] w-[188px]" />
+          <NavList className="gap-x-12" navLinks={NAVIGATION_LINKS} />
+        </nav>
+      ) : (
+        <nav class="hidden lg:flex lg:justify-between lg:gap-x-5">
+          <NavList className="gap-x-12" navLinks={NAVIGATION_LINKS.slice(0, midpoint)} />
+          <Logo className="h-[88px] w-[188px]" />
+          <NavList className="gap-x-12" navLinks={NAVIGATION_LINKS.slice(midpoint)} />
+        </nav>
+      )
+    }
+  </div>
+</header>

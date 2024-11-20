@@ -1,0 +1,21 @@
+---
+import Heading from "../Heading.astro"
+import Package from "../Package.astro"
+
+const packages = Array.from({ length: 3 })
+---
+
+<div class="hero-section container">
+  <Heading as="h1" subheading="Packages" className="mb-12"
+    >The prices I offer are <span class="italic-text">amazing</span></Heading
+  >
+  <ul class="grid grid-cols-1 gap-6 lg:grid-cols-3 xl:px-12">
+    {
+      packages.map(() => (
+        <li class="mx-auto sm:max-w-96">
+          <Package />
+        </li>
+      ))
+    }
+  </ul>
+</div>

@@ -1,0 +1,40 @@
+---
+import { CONTACTS } from "@/lib/constants"
+import ContactLink from "../ContactLink.astro"
+import Heading from "../Heading.astro"
+import type { ContactPlatform } from "@/lib/types"
+
+const contactPlatforms: ContactPlatform[] = ["instagram", "email"]
+
+const filteredContacts = CONTACTS.filter((contact) => contactPlatforms.includes(contact.platform))
+---
+
+<section class="hero-section container grid gap-12 lg:grid-cols-[45%,_1fr]">
+  <div class="flex flex-col items-start">
+    <Heading as="h1" className="mb-7 text-start" subheading="Hi, I'm Cornelia">
+      A <span class="italic-text">documentary</span> wedding & family photographer based in Dublin
+    </Heading>
+
+    <div class="mb-5 space-y-5">
+      <p class="body-text-sm">
+        Maecenas amet ultricies fames arcu tincidunt aliquet vitae dolor eros tristique ullamcorper
+        venenatis ornare id eu odio. Elit eget risus varius adipiscing volutpat nisl amet facilisis
+        ligula porta euismod semper consectetur.
+      </p>
+    </div>
+
+    <ul class="mb-7 flex flex-col gap-5">
+      {
+        filteredContacts.map((contact) => (
+          <li>
+            <ContactLink contact={contact} />
+          </li>
+        ))
+      }
+    </ul>
+    <a class="button" href="/contact">Let's talk</a>
+  </div>
+  <div class="md:fancy-background-bottom order-first self-start">
+    <img class="cover" src="/assets/me-1.jpg" alt="Cornelia" />
+  </div>
+</section>

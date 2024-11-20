@@ -1,0 +1,20 @@
+---
+import ContactForm from "../ContactForm.astro"
+import FloralBackground from "../FloralBackground.astro"
+import Heading from "../Heading.astro"
+---
+
+<>
+  <div class="container py-20 text-center">
+    <Heading as="h1" className="mb-4">Contact me</Heading>
+    <p class="body-text mx-auto max-w-[33ch]">
+      Hello! Got any questions? Don't hesitate to send me a message using the contact form below.
+    </p>
+  </div>
+  {/* TODO needs parallax effect */}
+  <FloralBackground>
+    <div class="section container mx-auto max-w-[62.5rem]">
+      <ContactForm className="px-4 py-24 md:px-12 lg:px-24" />
+    </div>
+  </FloralBackground>
+</>

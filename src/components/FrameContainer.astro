@@ -1,0 +1,20 @@
+---
+import { cn } from "@/lib/utils"
+type Props = {
+  background?: "primary" | "secondary"
+  className?: string
+}
+
+const { background = "primary", className } = Astro.props
+---
+
+<div class={cn("bg-white p-4 max-lg:col-span-full", background === "secondary" && "bg-[#f8f4f4]")}>
+  <div
+    class={cn(
+      "flex h-full flex-col items-center gap-6 border-4 border-[#e7dbdb] text-center",
+      className
+    )}
+  >
+    <slot />
+  </div>
+</div>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { Image } from "astro:assets"
+import type { CollectionEntry } from "astro:content"
+import { getCollection } from "astro:content"
+
+export const getStaticPaths = async () => {
+  const posts = await getCollection("posts")
+
+  const paths = posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      props: {
+        post,
+      },
+    }
+  })
+
+  return paths
+}
+
+type Props = {
+  post: CollectionEntry<"posts">
+}
+
+const { post } = Astro.props
+const { Content } = await post.render()
+---
+
+<BaseLayout title={post.data.title}>
+  <div class="hero-section container mx-auto flex flex-col">
+    <div class="top">
+      <div class="relative">
+        <Image class="w-full object-cover" src={post.data.image} width="800" alt="lorem" />
+      </div>
+      <div
+        class="relative mx-6 -mt-16 flex flex-col justify-center gap-4 bg-white px-5 py-5 text-center md:py-10 lg:px-7"
+      >
+        <span class="content-label text-xs md:text-sm">
+          {post.data.date} &mdash;{" "}
+          <span class="text-accent-foreground">{post.data.category}</span>
+        </span>
+        <h1 class="blog-preview-heading">
+          {post.data.title}
+        </h1>
+      </div>
+    </div>
+    <div class="mx-auto max-w-prose">
+      <Content />
+    </div>
+  </div>
+</BaseLayout>

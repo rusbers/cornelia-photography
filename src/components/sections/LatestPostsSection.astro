@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content"
+import PostList from "../PostList.astro"
+import Heading from "../Heading.astro"
+
+const posts = await getCollection("posts")
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
+)
+const latestPosts = sortedPosts.slice(0, 2)
+---
+
+<section class="section bg-[#f8f4f4]">
+  <div class="container">
+    <Heading className="mb-12">
+      <span class="italic-text">Latest</span> posts from my blog
+    </Heading>
+    <div>{(<PostList posts={latestPosts} />)}</div>
+  </div>
+</section>

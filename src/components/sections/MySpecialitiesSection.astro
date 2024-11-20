@@ -1,0 +1,38 @@
+---
+import FrameContainer from "../FrameContainer.astro"
+import Heading from "../Heading.astro"
+
+const specialities = ["wedding", "newborn", "family"]
+---
+
+<section class="section container">
+  <Heading subheading="My specialities" className="mx-auto mb-12 max-w-[28ch]"
+    >I love shooting people because there are so many <span class="italic-text">feelings</span> to capture.</Heading
+  >
+
+  <div class="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
+    <FrameContainer background="secondary" className="px-7 py-16 lg:px-4 xl:px-7">
+      <h3 class="text-uppercase font-zodiak text-xl">My specialities</h3>
+      <p class="body-text-sm">
+        I would like to give you a unique photography experience, built to serve you best and
+        capture your special moments for you.
+      </p>
+
+      <ul class="text-uppercase flex flex-col items-center gap-3">
+        {
+          specialities.map((speciality, index) => {
+            return <li>{`${index + 1}. ${speciality}`}</li>
+          })
+        }
+      </ul>
+
+      <a class="button mt-auto" href="/packages">View packages</a>
+    </FrameContainer>
+
+    <img
+      class="specialities-img-1 order-first md:order-none lg:order-first"
+      src="/assets/specialities-1.jpg"
+    />
+    <img class="specialities-img-2" src="/assets/specialities-2.jpg" />
+  </div>
+</section>

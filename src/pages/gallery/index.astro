@@ -1,0 +1,17 @@
+---
+import GalleryLayout from "@/layouts/GalleryLayout.astro"
+import { PHOTO_CATEGORIES } from "@/lib/constants"
+const currentPath = Astro.url.pathname
+
+if (currentPath === "/gallery") {
+  return Astro.redirect(`/gallery/${PHOTO_CATEGORIES[0]}`)
+}
+
+export const prerender = false
+---
+
+<GalleryLayout />
+
+<script>
+  import "@/js/masonry"
+</script>

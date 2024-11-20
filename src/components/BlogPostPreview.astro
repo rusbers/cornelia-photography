@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from "astro:content"
+import { Image } from "astro:assets"
+
+type Props = {
+  post: CollectionEntry<"posts">
+}
+
+const { post } = Astro.props
+---
+
+<article class="flex flex-col">
+  <a class="flex flex-col justify-center overflow-hidden" href={`/blog/${post.slug}`}>
+    <Image
+      class="transition-transform duration-500 hover:scale-105"
+      src={post.data.image}
+      width="600"
+      height="300"
+      alt="lorem"
+    />
+  </a>
+  <div
+    class="z-50 mx-6 -mt-12 flex flex-col justify-center gap-4 bg-white px-5 py-5 text-center md:py-10 lg:px-7"
+  >
+    <span class="content-label text-xs md:text-sm">
+      {post.data.date} &mdash;{" "}
+      <span class="text-accent-foreground">{post.data.category}</span>
+    </span>
+    <h3 class="blog-preview-heading">
+      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+    </h3>
+  </div>
+</article>

@@ -1,0 +1,38 @@
+---
+import Heading from "@/components/Heading.astro"
+import BaseLayout from "./BaseLayout.astro"
+import { cn } from "@/lib/utils"
+import { PHOTO_CATEGORIES } from "@/lib/constants"
+
+const currentPath = Astro.url.pathname
+---
+
+<BaseLayout>
+  <div class="hero-section container flex flex-col items-center pb-16">
+    <Heading as="h1" className="mb-4">Gallery</Heading>
+    <p class="body-text">
+      I would like to give you a unique photography experience and capture your special moments for
+      you.
+    </p>
+  </div>
+  <nav class="container py-7">
+    <ul class="flex justify-center gap-7">
+      {
+        PHOTO_CATEGORIES.map((category) => (
+          <li>
+            <a
+              class={cn(
+                "content-label text-muted-foreground transition-all delay-200 hover:text-accent-foreground",
+                currentPath === `/gallery/${category}` && "text-accent-foreground"
+              )}
+              href={`/gallery/${category}`}
+            >
+              {category}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <slot />
+</BaseLayout>

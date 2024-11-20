@@ -1,0 +1,66 @@
+---
+import { cn } from "@/lib/utils"
+import Logo from "./Logo"
+import type { HTMLAttributes } from "react"
+// import { ContactLink } from "./ContactLink"
+import { CONTACTS } from "@/lib/constants"
+import ContactLink from "./ContactLink.astro"
+
+type Props = HTMLAttributes<HTMLElement> & {
+  className?: string
+}
+
+const currentYear = new Date().getFullYear()
+
+const { className } = Astro.props
+---
+
+<footer id="page-footer" class={cn("footer", className)}>
+  <div class="container">
+    <div class="mb-8 flex flex-col flex-wrap items-center lg:grid lg:grid-cols-[30%,_1fr,_30%]">
+      {/* Desktop links */}
+      <ul class="large-social hidden px-7 lg:flex lg:flex-col lg:gap-6">
+        {
+          CONTACTS.filter((contact) => contact.contactType === "SOCIAL MEDIA CONTACT").map(
+            (contact) => (
+              <li>
+                <ContactLink hasIcon contact={contact} />
+              </li>
+            )
+          )
+        }
+      </ul>
+
+      <div class="flex flex-col items-center px-7 pb-12 lg:border-l-2 lg:border-r-2">
+        <Logo className="mb-7" />
+        <p class="body-text-sm text-center">
+          I would like to give you a unique photography experience and capture your special moments.
+        </p>
+      </div>
+
+      {/* Desktop links */}
+      <ul class="large-social hidden px-7 lg:flex lg:flex-col lg:gap-6">
+        {
+          CONTACTS.filter((contact) => contact.contactType === "DIRECT CONTACT").map((contact) => (
+            <li>
+              <ContactLink hasIcon contact={contact} />
+            </li>
+          ))
+        }
+      </ul>
+
+      {/* Mobile links */}
+      <ul class="mobile-social grid grid-cols-2 gap-x-5 gap-y-8 lg:hidden">
+        {
+          CONTACTS.map((contact) => (
+            <li>
+              <ContactLink hasIcon contact={contact} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <p class="text-center">&copy; {currentYear} Cornelia Photography</p>
+  </div>
+</footer>

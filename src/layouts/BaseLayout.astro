@@ -1,0 +1,46 @@
+---
+type Props = {
+  title?: string
+}
+
+import "../styles/globals.css"
+import Footer from "@/components/Footer.astro"
+import Header from "@/components/Header.astro"
+import { ViewTransitions } from "astro:transitions"
+
+const { title = "Cornelia Photography" } = Astro.props
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Header />
+    <main id="page-main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script>
+  function adjustMainPaddingTop() {
+    const pageHeader = document.getElementById("page-header")
+    const pageMain = document.getElementById("page-main")
+
+    if (pageHeader && pageMain) {
+      const headerHeight = pageHeader.offsetHeight
+      pageMain.style.paddingTop = `${headerHeight}px`
+    }
+  }
+
+  window.addEventListener("load", adjustMainPaddingTop)
+  window.addEventListener("resize", adjustMainPaddingTop)
+  document.addEventListener("astro:page-load", adjustMainPaddingTop)
+</script>

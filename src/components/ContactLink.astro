@@ -1,0 +1,37 @@
+---
+import type { Contact } from "@/lib/types"
+import { Email, Facebook, Insta, Telephone } from "./Icons"
+
+type Props = {
+  contact: Contact
+  hasIcon?: boolean
+}
+
+const { contact, hasIcon = false } = Astro.props
+
+const Icons = {
+  instagram: Insta,
+  facebook: Facebook,
+  telephone: Telephone,
+  email: Email,
+}
+
+const Icon = Icons[contact.platform]
+---
+
+<a
+  class="group transition-all duration-300"
+  href={contact.link}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <span class="text-uppercase flex items-center gap-2">
+    {hasIcon && Icon && <Icon />}
+    {contact.platform}
+  </span>
+  <span
+    class="break-words text-base transition-all duration-300 group-hover:text-accent-foreground"
+  >
+    {contact.identifier}
+  </span>
+</a>

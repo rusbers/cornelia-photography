@@ -1,0 +1,53 @@
+---
+import { cn } from "@/lib/utils"
+
+type Props = {
+  className?: string
+  submitText?: string
+}
+
+const { className, submitText = "Let's Talk" } = Astro.props
+---
+
+<form class={cn("grid gap-4 bg-background md:grid-cols-2 md:gap-6 p-4", className)}>
+  <input
+    class="input"
+    type="text"
+    name="name"
+    id="name"
+    required
+    placeholder="Name *"
+    aria-label="Name"
+  />
+  <input
+    class="input"
+    type="email"
+    name="email"
+    id="email"
+    required
+    placeholder="Email Address *"
+    aria-label="Email"
+  />
+  <input
+    class="input"
+    type="date"
+    name="event-date"
+    placeholder="Event Date"
+    aria-label="Event date"
+  />
+  <input
+    class="input"
+    type="text"
+    name="event-location"
+    placeholder="Event Location"
+    aria-label="Event location"
+  />
+  <textarea
+    class="input h-[9.375rem] resize-none p-5 md:col-span-full"
+    name="message"
+    placeholder="Your Message *"
+    required
+    aria-label="Message"></textarea>
+
+  <button class="button mx-auto self-center md:col-span-full" type="submit"> {submitText} </button>
+</form>

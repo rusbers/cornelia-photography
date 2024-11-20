@@ -1,0 +1,14 @@
+---
+import Heading from "../Heading.astro"
+import { TestimonialsCarousel } from "../TestimonalsCarousel"
+---
+
+<section class="section">
+  <div class="container">
+    <Heading subheading="Testimonials" className="mb-12">
+      Notes from <span class="italic-text">love bugs</span>
+    </Heading>
+
+    <TestimonialsCarousel client:load />
+  </div>
+</section>
