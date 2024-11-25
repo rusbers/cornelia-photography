@@ -1,1 +1,14 @@
-<div class="bg-[url('/assets/background.jpg')] bg-cover bg-center bg-no-repeat"><slot /></div>
+---
+import floralBackground from "@/assets/decorations/backgrounds/floral.jpg"
+import { getImage } from "astro:assets"
+
+const optimizedBackground = await getImage({
+  src: floralBackground,
+  format: "webp",
+  quality: "high",
+})
+---
+
+<div style={`background: url(${optimizedBackground.src}) center/cover no-repeat #f0f0f0`}>
+  <slot />
+</div>

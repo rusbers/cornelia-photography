@@ -1,5 +1,5 @@
 ---
-import Logo from "./Logo"
+import Logo from "@/icons/Logo"
 import { isOdd } from "@/lib/utils"
 import { NAVIGATION_LINKS } from "@/lib/constants"
 import { MobileNavigation } from "./MobileNavigation"
@@ -16,7 +16,7 @@ const shouldUseSimpleLayout = isArrayLengthOdd || NAVIGATION_LINKS.length <= 5
 >
   <MobileNavigation client:load>
     <NavList
-      className="flex flex-col items-start gap-3 px-6 py-9 text-sm font-medium leading-[1.7] tracking-widest"
+      className="flex flex-col items-start gap-3 gap-y-10 px-12 py-9 text-sm font-medium leading-[1.7] tracking-widest"
       navLinks={NAVIGATION_LINKS}
     />
   </MobileNavigation>

@@ -3,6 +3,8 @@ import { CONTACTS } from "@/lib/constants"
 import ContactLink from "../ContactLink.astro"
 import Heading from "../Heading.astro"
 import type { ContactPlatform } from "@/lib/types"
+import { Image } from "astro:assets"
+import CorneliaPhotoSource from "@/assets/about-me/cornelia.jpg"
 
 const contactPlatforms: ContactPlatform[] = ["instagram", "email"]
 
@@ -35,6 +37,6 @@ const filteredContacts = CONTACTS.filter((contact) => contactPlatforms.includes(
     <a class="button" href="/contact">Let's talk</a>
   </div>
   <div class="md:fancy-background-bottom order-first self-start">
-    <img class="cover" src="/assets/me-1.jpg" alt="Cornelia" />
+    <Image src={CorneliaPhotoSource} alt="Cornelia" loading="eager" />
   </div>
 </section>

@@ -1,8 +1,8 @@
-import type { Testimonial } from "./types";
+import type { TestimonialType } from "../types";
 
-export const TESTIMONIALS: Testimonial[] = [
+export const TESTIMONIALS: TestimonialType[] = [
   {
-    image: "/assets/testimonial-1.jpg",
+    imageSrc: "/src/assets/testimonials/testimonial-1.jpg",
     mainQuote:
       "We will cherish our joyful and emotionally packed family photographs forever.",
     quotes: [
@@ -11,10 +11,10 @@ export const TESTIMONIALS: Testimonial[] = [
     ],
     author: "Jules & Arnold",
     category: "couples",
-    id: "unique-id-1",
+    id: "01",
   },
   {
-    image: "/assets/testimonial-2.jpg",
+    imageSrc: "/src/assets/testimonials/testimonial-2.jpg",
     mainQuote:
       "We are beyond thankful for how our special day was captured and we'll cherish our pictures forever.",
     quotes: [
@@ -23,6 +23,6 @@ export const TESTIMONIALS: Testimonial[] = [
     ],
     author: "Taylor & Luca",
     category: "kids",
-    id: "unique-id-2",
+    id: "02",
   },
 ];

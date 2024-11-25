@@ -1,23 +1,23 @@
 import masonry from "data-masonry";
+import imagesLoaded from "imagesloaded";
 
 function initMasonry() {
-  // Remove any existing masonry instances first
   const existingMasonryContainers = document.querySelectorAll("[data-masonry]");
   existingMasonryContainers.forEach((container) => {
-    // If data-masonry has a destroy method, use it
     if (container.masonry && typeof container.masonry.destroy === "function") {
       container.masonry.destroy();
     }
   });
 
-  // Re-initialize masonry
-  masonry();
+  const masonryContainers = document.querySelectorAll("[data-masonry]");
+
+  masonryContainers.forEach((container) => {
+    imagesLoaded(container, () => {
+      masonry(container);
+    });
+  });
 }
 
-// Initial load
-document.addEventListener("astro:before-swap", initMasonry);
-
-// Use MutationObserver to detect page changes in Astro View Transitions
 if ("MutationObserver" in window) {
   const observer = new MutationObserver((mutations) => {
     for (const mutation of mutations) {
@@ -34,5 +34,7 @@ if ("MutationObserver" in window) {
   });
 }
 
-// If using Astro View Transitions, add an event listener
+document.addEventListener("astro:before-swap", initMasonry);
 document.addEventListener("astro:page-load", initMasonry);
+
+initMasonry();

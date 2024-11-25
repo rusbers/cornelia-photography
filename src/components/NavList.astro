@@ -19,7 +19,6 @@ const { className, navLinks } = Astro.props
           <a
             class={cn(
               "text-sm font-medium uppercase tracking-[.0875rem] transition-all duration-200 hover:text-accent-foreground",
-              className,
               isCurrentPath && "text-accent-foreground"
             )}
             href={navLink.path}

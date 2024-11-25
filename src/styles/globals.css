@@ -36,11 +36,47 @@
 }
 
 @layer base {
+  /* fonts */
+
+  @font-face {
+    font-family: "satoshi";
+    src:
+      url("/fonts/Satoshi-Variable.woff2") format("woff2"),
+      url("/fonts/Satoshi-Variable.woff") format("woff"),
+      url("/fonts/Satoshi-Variable.ttf") format("truetype");
+    font-weight: 300 900;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "zodiak";
+    src:
+      url("/fonts/Zodiak-Variable.woff2") format("woff2"),
+      url("/fonts/Zodiak-Variable.woff") format("woff"),
+      url("/fonts/Zodiak-Variable.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "zodiak-italic";
+    src:
+      url("/fonts/Zodiak-VariableItalic.woff2") format("woff2"),
+      url("/fonts/Zodiak-VariableItalic.woff") format("woff"),
+      url("/fonts/Zodiak-VariableItalic.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: italic;
+  }
+
   * {
     @apply border-border;
   }
   body {
     @apply bg-background font-sans text-foreground;
+  }
+  img {
+    @apply bg-primary;
   }
 }
 
@@ -109,39 +145,6 @@
   .fancy-background-bottom {
     @apply bg-gradient-to-b from-[transparent_63%] to-[hsl(var(--background-primary))_63%] px-12 pb-12;
   }
-}
-
-/* fonts */
-
-@font-face {
-  font-family: "satoshi";
-  src:
-    url("/fonts/Satoshi-Variable.woff2") format("woff2"),
-    url("/fonts/Satoshi-Variable.woff") format("woff"),
-    url("/fonts/Satoshi-Variable.ttf") format("truetype");
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "zodiak";
-  src:
-    url("/fonts/Zodiak-Variable.woff2") format("woff2"),
-    url("/fonts/Zodiak-Variable.woff") format("woff"),
-    url("/fonts/Zodiak-Variable.ttf") format("truetype");
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: "zodiak-italic";
-  src:
-    url("/fonts/Zodiak-VariableItalic.woff2") format("woff2"),
-    url("/fonts/Zodiak-VariableItalic.woff") format("woff"),
-    url("/fonts/Zodiak-VariableItalic.ttf") format("truetype");
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: italic;
 }
 
 /* sticky footer */

@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import Logo from "./Logo";
+import Logo from "@/icons/Logo";
 
 export const MobileNavigation = ({
   children,

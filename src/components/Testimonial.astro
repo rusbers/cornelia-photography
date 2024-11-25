@@ -1,0 +1,49 @@
+---
+import type { TestimonialType } from "@/lib/types"
+import type { ImageMetadata } from "astro"
+import { Image } from "astro:assets"
+
+type Props = {
+  testimonial: TestimonialType
+}
+
+const { testimonial } = Astro.props
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/testimonials/*.{jpeg,jpg,png,gif}"
+)
+
+if (!images[testimonial.imageSrc])
+  throw new Error(
+    `"${testimonial.imageSrc}" does not exist in glob: "/src/assets/testimonials/*.{jpeg,jpg,png,gif}"`
+  )
+
+const { default: imageData } = await images[testimonial.imageSrc]()
+---
+
+<div class="grid gap-4 lg:grid-cols-[18.75rem,_1fr] lg:gap-11">
+  <div class="fancy-border relative hidden self-start pl-5 pt-5 before:-z-10 lg:block">
+    <Image src={imageData} alt="" quality="high" />
+  </div>
+  <figure class="flex flex-col">
+    <blockquote class="flex flex-col gap-7">
+      <p class="main-quote font-serif text-[28px] font-normal leading-snug">
+        &quot;{testimonial.mainQuote}&quot;
+      </p>
+      <div class="flex flex-col gap-7 text-lg font-normal">
+        {
+          testimonial.quotes.map((quote: string) => {
+            return <p>&quot;{quote}&quot;</p>
+          })
+        }
+      </div>
+    </blockquote>
+    <figcaption class="content-label -order-1 mb-5">
+      <span class="author">{testimonial.author}</span>
+      <span class="px-2">&mdash;</span>
+      <span class="category text-accent-foreground">
+        {testimonial.category}
+      </span>
+    </figcaption>
+  </figure>
+</div>

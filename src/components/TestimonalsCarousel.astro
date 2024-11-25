@@ -1,0 +1,67 @@
+---
+import Testimonial from "./Testimonial.astro"
+import { TESTIMONIALS } from "@/lib/data/testimonials"
+// TODO to create an astro component to be independent from react! maybe to use chevron instead of arrows
+import { ArrowLeft, ArrowRight } from "lucide-react"
+
+const slideSpacing = "1.6rem"
+const slideSize = "100%"
+---
+
+<section class="carousel">
+  <div class="embla md:px-28">
+    <div class="embla__viewport">
+      <div class="embla__container">
+        {
+          TESTIMONIALS.map((testimonial) => (
+            <div class="embla__slide">
+              <Testimonial testimonial={testimonial} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="embla__buttons mt-7 flex justify-end gap-4 md:mt-0">
+      <button
+        class="embla__button embla__button--prev flex w-full flex-col items-center justify-center border bg-primary p-2 text-white duration-200 hover:opacity-80 disabled:opacity-80 md:absolute md:left-8 md:top-1/2 md:size-12 md:-translate-y-1/2 md:rounded-full"
+        type="button"
+      >
+        <span class="md:sr-only">Previous</span>
+        <ArrowLeft className="hidden md:block md:size-5" />
+      </button>
+      <button
+        class="embla__button embla__button--next flex w-full flex-col items-center justify-center border bg-primary p-2 text-white duration-200 hover:opacity-80 disabled:opacity-80 md:absolute md:right-8 md:top-1/2 md:size-12 md:-translate-y-1/2 md:rounded-full"
+        type="button"
+      >
+        <span class="md:sr-only">Next</span>
+        <ArrowRight className="hidden md:block md:size-5" />
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  import "@/scripts/carousel"
+</script>
+
+<style define:vars={{ slideSpacing, slideSize }}>
+  .embla {
+    position: relative;
+    margin: auto;
+  }
+  .embla__viewport {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-left: calc(var(--slideSpacing) * -1);
+  }
+  .embla__slide {
+    transform: translate3d(0, 0, 0);
+    flex: 0 0 var(--slideSize);
+    min-width: 0;
+    padding-left: var(--slideSpacing);
+  }
+</style>

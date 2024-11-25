@@ -7,13 +7,20 @@ export type PhotoCategories = (typeof PHOTO_CATEGORIES)[number];
 
 export type ImageType = CollectionEntry<PhotoCategories>;
 
-export type Testimonial = {
-  image: string;
+export type TestimonialType = {
+  imageSrc: string;
   mainQuote: string;
   quotes: string[];
   author: string;
   category: PhotoCategories;
   id: string;
+};
+
+export type PackageType = {
+  name: string;
+  price: number;
+  services: string[];
+  imageSrc: string;
 };
 
 export type Contact = {

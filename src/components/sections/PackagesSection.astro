@@ -1,8 +1,7 @@
 ---
 import Heading from "../Heading.astro"
 import Package from "../Package.astro"
-
-const packages = Array.from({ length: 3 })
+import { PACKAGES } from "@/lib/data/packages"
 ---
 
 <div class="hero-section container">
@@ -11,9 +10,9 @@ const packages = Array.from({ length: 3 })
   >
   <ul class="grid grid-cols-1 gap-6 lg:grid-cols-3 xl:px-12">
     {
-      packages.map(() => (
+      PACKAGES.map((servicePackage) => (
         <li class="mx-auto sm:max-w-96">
-          <Package />
+          <Package servicePackage={servicePackage} />
         </li>
       ))
     }

@@ -1,11 +1,14 @@
 ---
+import { Image } from "astro:assets"
 import Heading from "../Heading.astro"
+import servicePhoto1 from "@/assets/services/services-1.jpg"
+import servicePhoto2 from "@/assets/services/services-2.jpg"
 ---
 
 <section class="section bg-[#f8f4f4]">
   <div class="container">
     <div class="grid gap-12 lg:grid-cols-[1fr_35%]">
-      <div>
+      <div class="flex flex-col">
         <Heading className="mb-12">
           What <span class="italic-text">services</span> I provide?
         </Heading>
@@ -16,10 +19,12 @@ import Heading from "../Heading.astro"
             other special celebrations.
           </span>
         </p>
-        <img src="/assets/services-1.jpg" />
+        <div>
+          <Image alt="" src={servicePhoto1} width={servicePhoto1.width / 2} quality="high" />
+        </div>
       </div>
-      <div class="space-y-7">
-        <img src="/assets/services-2.jpg" />
+      <div class="flex flex-col space-y-7">
+        <Image alt="" src={servicePhoto2} width={servicePhoto2.width / 2} quality="high" />
         <p class="body-text-sm">
           Photography is my way of bringing your unique stories to life, and turning them into
           lasting, beautiful memories.
