@@ -3,8 +3,8 @@ import {
   DialogContent,
   DialogHeader,
   DialogTrigger,
+  DialogTitle,
 } from "@/components/ui/dialog";
-import { DialogTitle } from "@radix-ui/react-dialog";
 
 export function PackageModal({
   children,

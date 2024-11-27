@@ -4,6 +4,8 @@ import { getCollection } from "astro:content"
 import { CldImage } from "astro-cloudinary"
 import type { PhotoCategories } from "@/lib/types"
 import type { CollectionEntry } from "astro:content"
+import { GalleryDialog } from "@/components/GalleryDialog"
+import Lightbox from "@/components/lightbox.astro"
 
 export const prerender = false
 
@@ -18,28 +20,26 @@ const photos: ImageType[] = await getCollection(category as PhotoCategories)
   <section class="container">
     <h2 class="sr-only">The ${category} gallery</h2>
 
-    <section class="container">
-      <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3" data-masonry>
-        {
-          photos &&
-            photos.map((photo, i) => (
-              <CldImage
-                class="h-auto max-w-full"
-                width={photo.data.width}
-                height={photo.data.height}
-                src={photo.data.public_id}
-                alt={photo.data.context?.custom.alt}
-                crop={{
-                  source: true,
-                  type: "auto",
-                }}
-                sizes="(min-width: 320px) 30vw, 30vw"
-              />
-            ))
-        }
-      </div>
-    </section>
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3" data-masonry>
+      {
+        photos.map((photo) => (
+          <CldImage
+            class="h-auto max-w-full"
+            width={photo.data.width}
+            height={photo.data.height}
+            src={photo.data.public_id}
+            alt={photo.data.context?.custom.alt}
+            crop={{
+              source: true,
+              type: "auto",
+            }}
+            sizes="(min-width: 320px) 30vw, 30vw"
+          />
+        ))
+      }
+    </div>
   </section>
+  <Lightbox photos={photos} />
 </GalleryLayout>
 
 <script>
