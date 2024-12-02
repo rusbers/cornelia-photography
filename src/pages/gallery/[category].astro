@@ -1,11 +1,11 @@
 ---
 import GalleryLayout from "@/layouts/GalleryLayout.astro"
 import { getCollection } from "astro:content"
-import { CldImage } from "astro-cloudinary"
 import type { PhotoCategories } from "@/lib/types"
 import type { CollectionEntry } from "astro:content"
-import { GalleryDialog } from "@/components/GalleryDialog"
-import Lightbox from "@/components/lightbox.astro"
+import Gallery from "@/components/Gallery"
+import type { Photo } from "react-photo-album"
+import { getCldImageUrl } from "node_modules/astro-cloudinary/src/helpers/getCldImageUrl"
 
 export const prerender = false
 
@@ -14,34 +14,34 @@ type ImageType = CollectionEntry<PhotoCategories>
 const { category } = Astro.params
 
 const photos: ImageType[] = await getCollection(category as PhotoCategories)
+
+const optimizedPhotos = await Promise.all(
+  photos.map((photo) => {
+    try {
+      return {
+        src: getCldImageUrl({
+          src: photo.data.secure_url,
+          width: photo.data.width,
+          height: photo.data.height,
+          quality: 80,
+          format: "webp",
+        }),
+        width: photo.data.width,
+        height: photo.data.height,
+        alt: photo.data.context?.custom.alt,
+      } as Photo
+    } catch (error) {
+      return null
+    }
+  })
+)
+
+const validOptimizedPhotos = optimizedPhotos.filter((photo) => photo !== null)
 ---
 
 <GalleryLayout>
   <section class="container">
     <h2 class="sr-only">The ${category} gallery</h2>
-
-    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3" data-masonry>
-      {
-        photos.map((photo) => (
-          <CldImage
-            class="h-auto max-w-full"
-            width={photo.data.width}
-            height={photo.data.height}
-            src={photo.data.public_id}
-            alt={photo.data.context?.custom.alt}
-            crop={{
-              source: true,
-              type: "auto",
-            }}
-            sizes="(min-width: 320px) 30vw, 30vw"
-          />
-        ))
-      }
-    </div>
+    <Gallery photos={validOptimizedPhotos} client:load />
   </section>
-  <Lightbox photos={photos} />
 </GalleryLayout>
-
-<script>
-  import "@/scripts/masonry"
-</script>

@@ -67,6 +67,10 @@ export default {
           5: "hsl(var(--chart-5))",
         },
       },
+      screens: {
+        "custom-sm": "564px",
+        "custom-md": "968px",
+      },
     },
   },
   corePlugins: { container: false },
