@@ -2,7 +2,7 @@ import type { TestimonialType } from "../types";
 
 export const TESTIMONIALS: TestimonialType[] = [
   {
-    imageSrc: "/src/assets/testimonials/testimonial-1.jpg",
+    publicId: "testimonial-1_dlnne6",
     mainQuote:
       "We will cherish our joyful and emotionally packed family photographs forever.",
     quotes: [
@@ -14,7 +14,7 @@ export const TESTIMONIALS: TestimonialType[] = [
     id: "01",
   },
   {
-    imageSrc: "/src/assets/testimonials/testimonial-2.jpg",
+    publicId: "testimonial-2_inikh3",
     mainQuote:
       "We are beyond thankful for how our special day was captured and we'll cherish our pictures forever.",
     quotes: [

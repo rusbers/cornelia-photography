@@ -1,22 +1,37 @@
 ---
 import type { CollectionEntry } from "astro:content"
-import { Image } from "astro:assets"
+import { getEntry } from "astro:content"
+import { CldImage } from "astro-cloudinary"
 
 type Props = {
   post: CollectionEntry<"posts">
 }
 
 const { post } = Astro.props
+
+const banner = await getEntry("blogImages", post.data.bannerId)
 ---
 
 <article class="flex flex-col">
   <a class="flex flex-col justify-center overflow-hidden" href={`/blog/${post.slug}`}>
-    <Image
-      class="transition-transform duration-500 hover:scale-105"
-      src={post.data.image}
-      alt=""
-      quality="high"
-    />
+    {
+      banner ? (
+        <CldImage
+          src={banner.data.public_id}
+          width={banner.data.width}
+          height={banner.data.height}
+          alt={banner.data.context?.custom.alt || ""}
+        />
+      ) : (
+        <img
+          class="w-full bg-background-primary"
+          src={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3C/svg%3E`}
+          width={300}
+          height={200}
+          alt=""
+        />
+      )
+    }
   </a>
   <div
     class="z-50 mx-6 -mt-12 flex flex-col justify-center gap-4 bg-white px-5 py-5 text-center md:py-10 lg:px-7"

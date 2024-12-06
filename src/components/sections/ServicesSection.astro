@@ -1,8 +1,22 @@
 ---
-import { Image } from "astro:assets"
 import Heading from "../Heading.astro"
-import servicePhoto1 from "@/assets/services/services-1.jpg"
-import servicePhoto2 from "@/assets/services/services-2.jpg"
+import { CldImage } from "astro-cloudinary"
+import { getCollection } from "astro:content"
+
+const servicesImgNames = {
+  servicePhoto1: "service-img-1",
+  servicePhoto2: "service-img-2",
+}
+
+const servicesPhotos = await getCollection("services")
+// TODO we need a backup variant
+const servicePhoto1 = servicesPhotos.find(
+  (photo) => photo.data.display_name === servicesImgNames.servicePhoto1
+)
+
+const servicePhoto2 = servicesPhotos.find(
+  (photo) => photo.data.display_name === servicesImgNames.servicePhoto2
+)
 ---
 
 <section class="section bg-[#f8f4f4]">
@@ -20,11 +34,21 @@ import servicePhoto2 from "@/assets/services/services-2.jpg"
           </span>
         </p>
         <div>
-          <Image alt="" src={servicePhoto1} width={servicePhoto1.width / 2} quality="high" />
+          <CldImage
+            src={servicePhoto2!.data.public_id}
+            width={servicePhoto2!.data.width}
+            height={servicePhoto2!.data.height}
+            alt={servicePhoto2!.data.context?.custom.alt || ""}
+          />
         </div>
       </div>
       <div class="flex flex-col space-y-7">
-        <Image alt="" src={servicePhoto2} width={servicePhoto2.width / 2} quality="high" />
+        <CldImage
+          src={servicePhoto1!.data.public_id}
+          width={servicePhoto1!.data.width}
+          height={servicePhoto1!.data.height}
+          alt={servicePhoto1!.data.context?.custom.alt || ""}
+        />
         <p class="body-text-sm">
           Photography is my way of bringing your unique stories to life, and turning them into
           lasting, beautiful memories.

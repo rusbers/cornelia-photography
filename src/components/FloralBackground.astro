@@ -1,14 +1,11 @@
 ---
-import floralBackground from "@/assets/decorations/backgrounds/floral.jpg"
-import { getImage } from "astro:assets"
+import { getCldImageUrl } from "astro-cloudinary/helpers"
 
-const optimizedBackground = await getImage({
-  src: floralBackground,
-  format: "webp",
-  quality: "high",
-})
+const publicId = "floral_dtbwvs"
+
+const backgroundImage = getCldImageUrl({ src: publicId, quality: 80 })
 ---
 
-<div style={`background: url(${optimizedBackground.src}) center/cover no-repeat #f0f0f0`}>
+<div style={`background: url(${backgroundImage}) center/cover no-repeat #f0f0f0`}>
   <slot />
 </div>

@@ -5,7 +5,6 @@ import { TESTIMONIALS } from "@/lib/data/testimonials"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 
 const slideSpacing = "1.6rem"
-const slideSize = "100%"
 ---
 
 <section class="carousel">
@@ -45,7 +44,7 @@ const slideSize = "100%"
   import "@/scripts/carousel"
 </script>
 
-<style define:vars={{ slideSpacing, slideSize }}>
+<style define:vars={{ slideSpacing }}>
   .embla {
     position: relative;
     margin: auto;
@@ -60,7 +59,7 @@ const slideSize = "100%"
   }
   .embla__slide {
     transform: translate3d(0, 0, 0);
-    flex: 0 0 var(--slideSize);
+    flex: 0 0 100%;
     min-width: 0;
     padding-left: var(--slideSpacing);
   }

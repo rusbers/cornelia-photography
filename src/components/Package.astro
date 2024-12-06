@@ -1,10 +1,11 @@
 ---
-import { Image } from "astro:assets"
 import FrameContainer from "./FrameContainer.astro"
 import { CheckCircle } from "@/icons"
 import { PackageModal } from "./PackageModal"
 import ContactForm from "./ContactForm.astro"
 import type { PackageType } from "@/lib/types"
+import { CldImage } from "astro-cloudinary"
+import { getEntry } from "astro:content"
 
 type Props = {
   servicePackage: PackageType
@@ -12,23 +13,14 @@ type Props = {
 
 const { servicePackage } = Astro.props
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/packages/*.{jpeg,jpg,png,gif}"
-)
-
-if (!images[servicePackage.imageSrc])
-  throw new Error(
-    `"${servicePackage.imageSrc}" does not exist in glob: "/src/assets/testimonials/*.{jpeg,jpg,png,gif}"`
-  )
-
-const { default: imageData } = await images[servicePackage.imageSrc]()
+const image = await getEntry("packages", servicePackage.imageId)
 ---
 
 <FrameContainer
   background="secondary"
-  className="gap-12 px-7 pb-16 pt-7 lg:flex-col lg:px-4 lg:pt-4 xl:px-7"
+  className="w-full gap-12 px-7 pb-16 pt-7 lg:flex-col lg:px-4 lg:pt-4 xl:px-7"
 >
-  <Image src={imageData} width={imageData.width / 2} alt="" />
+  <CldImage src={image.data.public_id} width={image.data.width} height={image.data.height} alt="" />
   <div class="flex flex-col-reverse gap-3">
     <h3 class="text-uppercase text-heading-foreground">{servicePackage.name}</h3>
     <span class="text-uppercase text-4xl font-normal text-heading-foreground"

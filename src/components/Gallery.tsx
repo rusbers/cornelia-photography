@@ -8,7 +8,6 @@ import "yet-another-react-lightbox/styles.css";
 
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-import Masonry from "react-masonry-css";
 
 export default function Gallery({ photos }: { photos: Photo[] }) {
   const [index, setIndex] = useState(-1);
@@ -18,7 +17,7 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
       <MasonryPhotoAlbum
         photos={photos}
         onClick={({ index }) => setIndex(index)}
-        skeleton={<SkeletonMasonry photos={photos} />}
+        skeleton={<SkeletonMasonry />}
         spacing={16}
         columns={(containerWidth) => {
           if (containerWidth < 544) return 1;
@@ -37,28 +36,47 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
   );
 }
 
-function SkeletonMasonry({ photos }: { photos: Photo[] }) {
-  const breakpointColumnsObj = {
-    default: 3,
-    1024: 2,
-    584: 1,
-  };
+const skeletonItems = [
+  {
+    width: 1200,
+    height: 854,
+  },
+  {
+    width: 1200,
+    height: 1800,
+  },
+
+  {
+    width: 1200,
+    height: 1800,
+  },
+  {
+    width: 1200,
+    height: 828,
+  },
+  {
+    width: 1200,
+    height: 854,
+  },
+  {
+    width: 1200,
+    height: 1800,
+  },
+];
+
+function SkeletonMasonry() {
   return (
-    <Masonry
-      breakpointCols={breakpointColumnsObj}
-      className="skeleton-masonry-grid"
-      columnClassName="skeleton-masonry-grid__column"
-    >
-      {photos.map((photo, i) => (
+    <div className="column-1 gap-4 space-y-4 min-[584px]:columns-2 lg:columns-3">
+      {skeletonItems.map((item, i) => (
         <img
           key={i}
           className="animate-pulse bg-background-primary"
-          src={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${photo.width} ${photo.height}'%3E%3C/svg%3E`}
-          width={photo.width}
-          height={photo.height}
+          src={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${item.width / 2} ${item.height / 2}'%3E%3C/svg%3E`}
+          width={item.width / 2}
+          height={item.height / 2}
           alt=""
         />
       ))}
-    </Masonry>
+    </div>
   );
 }

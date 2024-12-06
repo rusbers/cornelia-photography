@@ -168,6 +168,8 @@ body {
   flex: 0 0 auto;
 }
 
+/* skeleton */
+
 .skeleton-masonry-grid {
   display: flex;
   width: auto;
@@ -178,4 +180,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+/* For fixing the scroll bug caused by the dialog component */
+
+html > body[data-scroll-locked] {
+  overflow: visible !important;
+  margin-right: 0 !important;
 }

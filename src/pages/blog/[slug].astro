@@ -1,53 +1,56 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import { Image } from "astro:assets"
+import { cn } from "@/lib/utils"
+import { CldImage } from "astro-cloudinary"
 import type { CollectionEntry } from "astro:content"
-import { getCollection } from "astro:content"
+import { getEntry } from "astro:content"
 
-export const getStaticPaths = async () => {
-  const posts = await getCollection("posts")
+const { slug } = Astro.params
 
-  const paths = posts.map((post) => {
-    return {
-      params: {
-        slug: post.slug,
-      },
-      props: {
-        post,
-      },
-    }
-  })
+const post = (await getEntry("posts", slug as string)) as CollectionEntry<"posts">
 
-  return paths
+if (!post) {
+  Astro.redirect("/404")
 }
 
-type Props = {
-  post: CollectionEntry<"posts">
-}
-
-const { post } = Astro.props
 const { Content } = await post.render()
+
+const banner = await getEntry("blogImages", post.data.bannerId)
 ---
 
 <BaseLayout title={post.data.title}>
-  <div class="hero-section container mx-auto flex flex-col">
-    <div class="top">
+  <div class="container">
+    <div class="mx-auto max-w-3xl py-5 md:pb-10">
       <div class="relative">
-        <Image class="w-full object-cover" src={post.data.image} width="800" alt="lorem" />
+        {
+          banner && (
+            <CldImage
+              src={banner.data.public_id}
+              width={banner.data.width}
+              height={banner.data.height}
+              alt={banner.data.context?.custom.alt || ""}
+            />
+          )
+        }
       </div>
       <div
-        class="relative mx-6 -mt-16 flex flex-col justify-center gap-4 bg-white px-5 py-5 text-center md:py-10 lg:px-7"
+        class={cn(
+          "mx-6 flex flex-col justify-center gap-4 bg-white px-5 py-5 text-center shadow-lg md:py-7 lg:px-7",
+          banner && "relative -mt-16"
+        )}
       >
+        <h1 class="blog-preview-heading">
+          {post.data.title}
+        </h1>
         <span class="content-label text-xs md:text-sm">
           {post.data.date} &mdash;{" "}
           <span class="text-accent-foreground">{post.data.category}</span>
         </span>
-        <h1 class="blog-preview-heading">
-          {post.data.title}
-        </h1>
       </div>
     </div>
-    <div class="mx-auto max-w-prose">
+    <div
+      class="prose-p:body-text prose-headings:heading prose mx-auto max-w-prose prose-headings:mt-0 prose-headings:text-start prose-headings:text-2xl prose-p:text-lg"
+    >
       <Content />
     </div>
   </div>

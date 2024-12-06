@@ -6,8 +6,6 @@ const currentPath = Astro.url.pathname
 if (currentPath === "/gallery") {
   return Astro.redirect(`/gallery/${PHOTO_CATEGORIES[0]}`)
 }
-
-export const prerender = false
 ---
 
 <GalleryLayout />

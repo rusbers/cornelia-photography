@@ -11,7 +11,7 @@ import { PACKAGES } from "@/lib/data/packages"
   <ul class="grid grid-cols-1 gap-6 lg:grid-cols-3 xl:px-12">
     {
       PACKAGES.map((servicePackage) => (
-        <li class="mx-auto sm:max-w-96">
+        <li class="mx-auto w-full sm:max-w-96">
           <Package servicePackage={servicePackage} />
         </li>
       ))

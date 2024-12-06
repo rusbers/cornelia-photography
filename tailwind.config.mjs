@@ -76,6 +76,7 @@ export default {
   corePlugins: { container: false },
   plugins: [
     require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
     plugin(({ addComponents, theme }) => {
       addComponents({
         ".container": {

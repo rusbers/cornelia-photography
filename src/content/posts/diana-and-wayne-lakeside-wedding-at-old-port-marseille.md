@@ -1,14 +1,13 @@
 ---
+title: Diana & Wayne lakeside wedding at Old Port, Marseille
 author: Cornelia Berendeev
 category: "kids"
 date: "2022-08-24"
-image: ./images/diana-and-wayne-lakeside-wedding-at-old-port-marseille.jpg
-title: Diana & Wayne lakeside wedding at Old Port, Marseille
+bannerId: "diana-and-wayne-lakeside-wedding-at-old-port-marseille_qliygg"
+contentImageId: "diana-and-wayne-lakeside-wedding-at-old-port-marseille-2_ynvule"
 ---
 
-Collaboration is a key component of many creative endeavors, and music production is no exception. In fact, collaboration can be essential to the success of a music project, as it allows for the pooling of diverse talents and perspectives to create something truly unique and compelling.
-
-## Introduction
+# Introduction
 
 There are many ways that collaboration can take place in music production. For example, musicians may collaborate on the creation of a song, with each musician contributing their own unique parts to the overall composition. Producers and engineers may collaborate to ensure that the final mix and master are of the highest quality possible. And songwriters and producers may collaborate to develop the song's overall structure, lyrics, and arrangement.
 

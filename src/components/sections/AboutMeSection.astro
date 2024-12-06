@@ -3,12 +3,16 @@ import { CONTACTS } from "@/lib/constants"
 import ContactLink from "../ContactLink.astro"
 import Heading from "../Heading.astro"
 import type { ContactPlatform } from "@/lib/types"
-import { Image } from "astro:assets"
-import CorneliaPhotoSource from "@/assets/about-me/cornelia.jpg"
+import { getCollection } from "astro:content"
+import { CldImage } from "astro-cloudinary"
 
 const contactPlatforms: ContactPlatform[] = ["instagram", "email"]
 
 const filteredContacts = CONTACTS.filter((contact) => contactPlatforms.includes(contact.platform))
+
+const assets = await getCollection("aboutMeImages")
+
+const corneliaPhoto = assets[0]
 ---
 
 <section class="hero-section container grid gap-12 lg:grid-cols-[45%,_1fr]">
@@ -37,6 +41,12 @@ const filteredContacts = CONTACTS.filter((contact) => contactPlatforms.includes(
     <a class="button" href="/contact">Let's talk</a>
   </div>
   <div class="md:fancy-background-bottom order-first self-start">
-    <Image src={CorneliaPhotoSource} alt="Cornelia" loading="eager" />
+    <CldImage
+      src={corneliaPhoto.data.public_id}
+      width={corneliaPhoto.data.width}
+      height={corneliaPhoto.data.height}
+      alt=""
+      loading="eager"
+    />
   </div>
 </section>

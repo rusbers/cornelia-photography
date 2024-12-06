@@ -7,8 +7,6 @@ import Gallery from "@/components/Gallery"
 import type { Photo } from "react-photo-album"
 import { getCldImageUrl } from "node_modules/astro-cloudinary/src/helpers/getCldImageUrl"
 
-export const prerender = false
-
 type ImageType = CollectionEntry<PhotoCategories>
 
 const { category } = Astro.params
@@ -16,15 +14,13 @@ const { category } = Astro.params
 const photos: ImageType[] = await getCollection(category as PhotoCategories)
 
 const optimizedPhotos = await Promise.all(
-  photos.map((photo) => {
+  photos.map((photo, i) => {
     try {
       return {
         src: getCldImageUrl({
-          src: photo.data.secure_url,
+          src: photo.data.public_id,
           width: photo.data.width,
           height: photo.data.height,
-          quality: 80,
-          format: "webp",
         }),
         width: photo.data.width,
         height: photo.data.height,

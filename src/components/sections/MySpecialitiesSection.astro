@@ -1,15 +1,12 @@
 ---
-import { Image } from "astro:assets"
 import FrameContainer from "../FrameContainer.astro"
 import Heading from "../Heading.astro"
+import { getCollection } from "astro:content"
+import { CldImage } from "astro-cloudinary"
 
 const specialities = ["wedding", "newborn", "family"]
 
-const images = await Astro.glob<{ default: ImageMetadata }>(
-  "/src/assets/specialities/*.{jpg,JPG,jpeg,png,PNG,webp}"
-).then((files) => {
-  return files.map((file) => file.default)
-})
+const cldImages = await getCollection("specialitiesImages")
 ---
 
 <section class="section container">
@@ -36,13 +33,19 @@ const images = await Astro.glob<{ default: ImageMetadata }>(
       <a class="button mt-auto" href="/packages">View packages</a>
     </FrameContainer>
     {
-      images.map((image) => (
-        <Image
-          class="first-of-type:order-first first-of-type:md:order-none first-of-type:lg:order-first"
-          src={image}
-          alt=""
-        />
-      ))
+      cldImages.map((image) => {
+        return (
+          image && (
+            <CldImage
+              class="first-of-type:order-first first-of-type:md:order-none first-of-type:lg:order-first"
+              src={image.data.public_id}
+              width={image.data.width}
+              height={image.data.height}
+              alt={image.data.context?.custom.alt || ""}
+            />
+          )
+        )
+      })
     }
   </div>
 </section>

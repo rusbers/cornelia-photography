@@ -1,14 +1,13 @@
 ---
+title: Stacy & Thomas village wedding at Irvington, New Jersey
 author: Cornelia Berendeev
 category: "couples"
 date: "2022-07-07"
-image: ./images/stacy-and-thomas-village-wedding-at-irvington-new-jersey.jpg
-title: Stacy & Thomas village wedding at Irvington, New Jersey
+bannerId: stacy-and-thomas-village-wedding-at-irvington-new-jersey_pke3qg
+contentImageId: stacy-and-thomas-village-wedding-at-irvington-new-jersey-2_vqhp7k
 ---
 
-Collaboration is a key component of many creative endeavors, and music production is no exception. In fact, collaboration can be essential to the success of a music project, as it allows for the pooling of diverse talents and perspectives to create something truly unique and compelling.
-
-## Introduction
+# Introduction
 
 There are many ways that collaboration can take place in music production. For example, musicians may collaborate on the creation of a song, with each musician contributing their own unique parts to the overall composition. Producers and engineers may collaborate to ensure that the final mix and master are of the highest quality possible. And songwriters and producers may collaborate to develop the song's overall structure, lyrics, and arrangement.
 

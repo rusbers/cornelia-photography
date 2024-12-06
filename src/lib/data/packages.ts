@@ -10,7 +10,7 @@ export const PACKAGES: PackageType[] = [
       "100 Printing",
       "Online Gallery",
     ],
-    imageSrc: "/src/assets/packages/packages-1.jpg",
+    imageId: "couples",
   },
   {
     name: "kids",
@@ -21,7 +21,7 @@ export const PACKAGES: PackageType[] = [
       "100 printing",
       "online gallery",
     ],
-    imageSrc: "/src/assets/packages/packages-2.jpg",
+    imageId: "kids",
   },
   {
     name: "family",
@@ -32,6 +32,6 @@ export const PACKAGES: PackageType[] = [
       "100 printing",
       "online gallery",
     ],
-    imageSrc: "/src/assets/packages/packages-3.jpg",
+    imageId: "family",
   },
 ];
