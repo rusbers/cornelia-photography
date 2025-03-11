@@ -11,7 +11,7 @@ export default defineCliConfig({
   },
   studioHost:
     host && host !== "main"
-      ? `${host}-turbo-start-sanity`
-      : "turbo-start-sanity",
+      ? `${host}-cornelia-photography`
+      : "cornelia-photography",
   autoUpdates: false,
 });
