@@ -65,9 +65,11 @@ const components: Partial<PortableTextReactComponents> = {
   },
   marks: {
     strong: ({ children }) => (
-      <strong className="font-semibold">{children}</strong>
+      <strong className="font-medium">{children}</strong>
     ),
-    em: ({ children }) => <em className="font-accent">{children}</em>,
+    em: ({ children }) => (
+      <em className="font-accent text-foreground-heading">{children}</em>
+    ),
     small: ({ children }) => <span className="text-lg">{children}</span>,
     uppercase: ({ children }) => (
       <span className="text-uppercase">{children}</span>
