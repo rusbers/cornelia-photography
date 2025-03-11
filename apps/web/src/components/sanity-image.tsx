@@ -4,6 +4,7 @@ import Image, { type ImageProps as NextImageProps } from "next/image";
 
 import { urlFor } from "@/lib/sanity/client";
 import type { SanityImageProps } from "@/types";
+import { stegaClean } from "next-sanity";
 
 type ImageProps = {
   asset: SanityImageProps;
@@ -45,8 +46,8 @@ export function SanityImage({
 
   // Base image props
   const imageProps = {
-    alt: alt ?? asset.alt ?? "Image",
-    "aria-label": alt ?? asset.alt ?? "Image",
+    alt: stegaClean(alt) ?? stegaClean(asset.alt) ?? "Image",
+    "aria-label": stegaClean(alt) ?? stegaClean(asset.alt) ?? "Image",
     src: url,
     className: cn(className),
     // Optimize image sizes for performance and LCP
@@ -85,6 +86,6 @@ export function getImageUrl(asset: SanityImageProps) {
   return urlFor({ ...asset, _id: asset?.asset?._ref })
     .size(Number(dimensions.width), Number(dimensions.height))
     .auto("format")
-    .quality(75)
+    .quality(60)
     .url();
 }

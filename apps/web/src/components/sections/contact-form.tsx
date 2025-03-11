@@ -1,10 +1,10 @@
 import { type PagebuilderType } from "@/types";
-import { RichText } from "../richtext";
 import { Form } from "../contact-me/form";
 import { Parallax } from "../parallax";
 import { Email, Facebook, HeadlineFlower, Instagram } from "../icons";
 import Whatsapp from "../icons/social/Whatsapp";
 import { cn } from "@workspace/ui/lib/utils";
+import { getImageUrl } from "../sanity-image";
 
 type ContactFormProps = PagebuilderType<"contactForm">;
 type CommonProps = {
@@ -25,7 +25,9 @@ const ContactContainer = ({ children, className }: CommonProps) => (
   <div className={cn("px-6", className)}>{children}</div>
 );
 
-export function ContactForm({ intro }: ContactFormProps) {
+export function ContactForm({ image }: ContactFormProps) {
+  const parallaxImage = getImageUrl(image);
+
   return (
     <section id="contactForm" className="bg-bakc">
       <div className="container py-16">
@@ -40,7 +42,7 @@ export function ContactForm({ intro }: ContactFormProps) {
         </div>
       </div>
       <div className="relative">
-        <Parallax parallaxImage={null}>
+        <Parallax parallaxImage={parallaxImage}>
           <div className="container section">
             <div className="w-full max-w-5xl bg-white mx-auto grid lg:gap-x-4 lg:grid-cols-[auto_1fr]">
               <ContactContainer className="flex flex-col gap-6 lg:self-start pt-16 pb-8 md:pb-16 px-6 lg:h-full bg-background-secondary lg:pt-8">

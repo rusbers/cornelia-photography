@@ -25,16 +25,17 @@ export function PricesBlock({
         </div>
         <div className="grid gap-6 justify-center xl:grid-cols-3">
           {pricingTiers?.map((pricing) => (
-            <div className="p-4 bg-background-secondary max-w-[37.5rem] flex">
-              <div
-                key={pricing._id}
-                className="border-4 p-4 pb-16 flex flex-col gap-12"
-              >
+            <div
+              key={pricing._id}
+              className="p-4 bg-background-secondary max-w-[37.5rem] flex"
+            >
+              <div className="border-4 p-4 pb-16 flex flex-col gap-12">
                 <div className=";g:p-4 xl:p-0">
                   <SanityImage
                     width={604}
                     height={427}
                     className="shadow-xl"
+                    loading="eager"
                     asset={pricing.image}
                   />
                 </div>

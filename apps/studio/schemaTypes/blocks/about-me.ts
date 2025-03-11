@@ -29,7 +29,7 @@ export const aboutMe = defineType({
       },
     ),
     defineField({
-      name: "photo",
+      name: "image",
       title: "Your photo",
       type: "image",
       description: "Upload up to 2 images that best represent you.",
@@ -39,7 +39,7 @@ export const aboutMe = defineType({
   preview: {
     select: {
       subtitle: "pretitle",
-      media: "photo",
+      media: "image",
     },
     prepare: ({ subtitle, media }) => ({
       title: "About Me",

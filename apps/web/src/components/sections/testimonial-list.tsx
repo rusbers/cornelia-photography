@@ -32,9 +32,8 @@ export function TestimonialListBlock({
             opts={{ loop: true }}
             plugins={[
               Autoplay({
-                delay: 4000,
+                delay: 3000,
               }),
-              Fade(),
             ]}
           >
             <CarouselContent>
@@ -46,15 +45,17 @@ export function TestimonialListBlock({
                   <SanityImage
                     aria-hidden={true}
                     className="rounded-full mb-4 md:mb-0 shadow-2xl size-32 md:size-48 shrink-0 md:shadow-sm md:justify-self-center lg:hidden"
-                    asset={testimonial.photo}
+                    asset={testimonial.image}
                     width={300}
                     height={300}
+                    loading="eager"
                   />
                   <div className="hidden lg:block fancy-border relative  self-start pl-5 pt-5 before:-z-10">
                     <SanityImage
-                      asset={testimonial.photo}
+                      asset={testimonial.image}
                       width={280}
                       height={420}
+                      loading="eager"
                     />
                   </div>
                   <figure className="md:self-center lg:flex lg:flex-col lg:gap-4">
@@ -82,11 +83,11 @@ export function TestimonialListBlock({
               ))}
             </CarouselContent>
             <CarouselPrevious
-              className="-left-9 size-8 min-w-0 min-h-0 md:size-10 md:-left-14 lg:-left-20"
+              className="-left-12 size-8 min-w-0 min-h-0 md:size-10 md:-left-14 lg:-left-20"
               variant="default"
             />
             <CarouselNext
-              className="-right-9 size-8 min-w-0 min-h-0 md:size-10 md:-right-14 lg:-right-20"
+              className="-right-12 size-8 min-w-0 min-h-0 md:size-10 md:-right-14 lg:-right-20"
               variant="default"
             />
           </Carousel>

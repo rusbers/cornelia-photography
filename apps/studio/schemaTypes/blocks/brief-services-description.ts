@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 import { BriefcaseBusiness } from "lucide-react";
 import { extensibleRichText } from "../definitions/rich-text";
 
@@ -13,22 +13,26 @@ export const briefServicesDescription = defineType({
       { name: "firstText", title: "Main text" },
       { styles: ["h2", "normal"], lists: [], decorators: ["strong", "em"] },
     ),
-    defineField({
-      name: "horizontalImage",
-      description: "Should be an horizontal image",
-      title: "Main Image",
-      type: "image",
-    }),
     extensibleRichText(
       ["block"],
       { name: "secondText", title: "Secondary text" },
       { styles: ["normal"], lists: [], decorators: ["strong", "em", "small"] },
     ),
     defineField({
-      name: "verticalImage",
-      description: "Should be a vertical image",
-      title: "Secondary Image",
-      type: "image",
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "image",
+          options: { hotspot: true },
+        }),
+      ],
+      options: { layout: "grid" },
+      description:
+        "Upload two images: one horizontal and one vertical to maintain the section's structure.",
+      validation: (Rule) =>
+        Rule.required().max(2).warning("You must upload 2 images."),
     }),
   ],
   preview: {

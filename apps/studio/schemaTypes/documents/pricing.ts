@@ -32,6 +32,7 @@ export const pricing = defineType({
       title: "Cover Image",
       type: "image",
       options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

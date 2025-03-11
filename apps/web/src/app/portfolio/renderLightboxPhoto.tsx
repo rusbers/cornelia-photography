@@ -50,7 +50,6 @@ export default function renderLightboxPhoto({
     <div style={{ position: "relative", width, height }}>
       <SanityImage
         asset={slide}
-        loading="eager"
         draggable={false}
         style={{
           objectFit: cover ? "cover" : "contain",

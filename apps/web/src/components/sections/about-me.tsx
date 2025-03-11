@@ -5,7 +5,7 @@ import { SanityButton } from "../sanity-buttons";
 
 type AboutMeProps = PagebuilderType<"aboutMe">;
 
-export function AboutMe({ pretitle, richText, button, photo }: AboutMeProps) {
+export function AboutMe({ pretitle, richText, button, image }: AboutMeProps) {
   return (
     <section id="aboutMe" className="section pt-10">
       <div className="container">
@@ -25,8 +25,8 @@ export function AboutMe({ pretitle, richText, button, photo }: AboutMeProps) {
               loading="eager"
               width={831}
               height={1108}
-              quality={100}
-              asset={photo}
+              quality={75}
+              asset={image}
             />
           </div>
         </div>

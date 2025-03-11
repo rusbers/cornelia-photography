@@ -22,8 +22,10 @@ export const featuredTestimonial = defineType({
       options: { disableNew: true },
     }),
     defineField({
-      name: "background",
+      name: "image",
+      title: "Background",
       type: "image",
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

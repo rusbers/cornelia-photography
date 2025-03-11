@@ -20,6 +20,7 @@ export function Parallax({ children, parallaxImage }: ParallaxProps) {
           width: "100%",
           height: "100%",
           zIndex: -1,
+          backgroundColor: "#f8f4f4",
         }}
         layers={[
           {

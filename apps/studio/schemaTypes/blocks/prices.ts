@@ -27,7 +27,7 @@ export const prices = defineType({
       type: "currency",
       description: "Prices currency applied",
       initialValue: {
-        currencyType: "EUR", // Set initial currency type to EUR
+        currencyType: "EUR",
       },
     }),
     defineField({

@@ -24,8 +24,6 @@ export function CTACard({ card, className }: CTACardProps) {
         <div className="absolute inset-0 z-[1] mix-blend-multiply">
           <SanityImage
             asset={image}
-            loading="eager"
-            priority
             quality={100}
             fill
             className="object-cover grayscale pointer-events-none group-hover:opacity-100 group-hover:transition-opacity duration-1000 opacity-40"

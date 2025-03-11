@@ -3,6 +3,7 @@ import { RichText } from "../richtext";
 import Link from "next/link";
 import { SanityImage } from "../sanity-image";
 import { SanityButton } from "../sanity-buttons";
+import { cn } from "@workspace/ui/lib/utils";
 
 type MySpecialitiesProps = PagebuilderType<"mySpecialities">;
 
@@ -11,7 +12,7 @@ export function MySpecialities({
   heading,
   richText,
   button,
-  photos,
+  images,
 }: MySpecialitiesProps) {
   return (
     <section id="mySpecialities" className="section">
@@ -23,11 +24,23 @@ export function MySpecialities({
             richText={heading}
           />
         </div>
-        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-[28%_1fr_28%] lg:items-center xl:grid-cols-3">
-          <div className="p-4 bg-background-secondary max-lg:col-span-full lg:h-full">
+        <div
+          className={cn(
+            "grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-[28%_1fr_28%] lg:items-center xl:grid-cols-3",
+            !images && "flex lg:flex justify-center mx-auto",
+          )}
+        >
+          <div
+            className={
+              "p-4 bg-background-secondary max-lg:col-span-full lg:h-full"
+            }
+          >
             <div className="border-4 px-7 py-16 flex flex-col gap-6 h-full">
               <RichText
-                className="prose-ol:text-lg prose-p:text-lg prose-h3:text-xl text-center prose-li:list-inside prose-ol:pl-0 prose-li:pl-0"
+                className={cn(
+                  "prose-ol:text-lg prose-p:text-lg prose-h3:text-xl text-center prose-li:list-inside prose-ol:pl-0 prose-li:pl-0",
+                  !images && "max-w-[40ch]",
+                )}
                 richText={richText}
               />
               <div className="flex justify-center mt-auto">
@@ -35,13 +48,13 @@ export function MySpecialities({
               </div>
             </div>
           </div>
-          {photos?.map((photo) => (
+          {images?.map((image) => (
             <SanityImage
               width={828}
               height={1242}
               className="first-of-type:order-first first-of-type:md:order-none first-of-type:lg:order-first"
-              key={photo._key}
-              asset={photo}
+              key={image._key}
+              asset={image}
             />
           ))}
         </div>

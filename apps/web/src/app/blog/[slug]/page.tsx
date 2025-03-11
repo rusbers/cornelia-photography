@@ -65,9 +65,8 @@ export default async function BlogSlugPage({
                 asset={image}
                 alt={title}
                 width={1600}
-                loading="eager"
-                priority
                 height={900}
+                loading="eager"
                 className="rounded-lg h-auto w-full"
               />
             </div>

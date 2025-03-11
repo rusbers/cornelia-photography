@@ -110,7 +110,7 @@ function MobileNavbar({ navbarData }: { navbarData: QueryNavbarDataResult }) {
 
   const path = usePathname();
 
-  const MobileLogo = () => <Logo src={logo} alt={siteTitle} priority />;
+  const MobileLogo = () => <Logo src={logo} alt={siteTitle} />;
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: This is intentional
   useEffect(() => {
@@ -127,7 +127,7 @@ function MobileNavbar({ navbarData }: { navbarData: QueryNavbarDataResult }) {
           </button>
         </SheetTrigger>
       </div>
-      <SheetContent className="overflow-y-auto space-y-6 bg-background-secondary">
+      <SheetContent className="overflow-y-auto space-y-6 bg-background-secondary max-[599px]:w-full">
         <SheetHeader className="flex gap-4 flex-row space-y-0 items-center justify-between">
           <SheetTitle>
             <MobileLogo />
@@ -260,7 +260,6 @@ export function DesktopNavbar({
       className="lg:h-[88px] lg:w-[188px] shrink-0"
       src={logo}
       alt={siteTitle}
-      priority
     />
   );
 

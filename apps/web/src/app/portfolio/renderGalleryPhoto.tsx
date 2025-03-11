@@ -11,8 +11,10 @@ type RenderImageContext = RenderImageContextLib & {
 
 export default function renderGalleryPhoto(
   {}: RenderImageProps,
-  { photo, width, height }: RenderImageContext & { photo: Photograph },
+  { photo, width, height, index }: RenderImageContext & { photo: Photograph },
 ) {
+  if (!photo.asset) return null;
+
   return (
     <div
       className="shadow-xl"
@@ -22,7 +24,11 @@ export default function renderGalleryPhoto(
         aspectRatio: `${width} / ${height}`,
       }}
     >
-      <SanityImage asset={photo} />
+      <SanityImage
+        asset={photo}
+        quality={65}
+        loading={index <= 2 ? "eager" : "lazy"}
+      />
     </div>
   );
 }

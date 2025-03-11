@@ -25,8 +25,7 @@ export function HeroBlock({ richText, images, button }: HeroBlockProps) {
                 asset={image}
                 width={623}
                 height={945}
-                priority
-                quality={80}
+                quality={75}
                 loading="eager"
               />
             ))}

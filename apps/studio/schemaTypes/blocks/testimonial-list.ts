@@ -21,6 +21,7 @@ export const testimonialList = defineType({
       name: "testimonials",
       type: "array",
       of: [{ type: "reference", to: [{ type: "testimonial" }] }],
+      validation: (Rule) => Rule.min(3),
     }),
   ],
 });

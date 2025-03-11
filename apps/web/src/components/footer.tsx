@@ -119,7 +119,7 @@ function Footer({ data }: FooterProps) {
       <footer className="bg-background-secondary border-t">
         <div className="container border-b">
           <div className="py-12 space-y-6 flex flex-col items-center">
-            <Logo src={logo} alt={siteTitle} priority />
+            <Logo src={logo} alt={siteTitle} priority={false} />
             {subtitle && (
               <p className="body-text-sm text-center balance md:max-w-[30rem] mx-auto">
                 {subtitle}

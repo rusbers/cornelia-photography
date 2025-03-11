@@ -29,14 +29,17 @@ export const testimonial = defineType({
       { styles: ["h3", "normal"], decorators: ["strong", "em"] },
     ),
     defineField({
-      name: "photo",
+      name: "image",
+      title: "Photo",
       type: "image",
+      options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
     select: {
       client: "client",
-      media: "photo",
+      media: "image",
       category: "category.title",
     },
     prepare: ({ client, category, media }) => ({

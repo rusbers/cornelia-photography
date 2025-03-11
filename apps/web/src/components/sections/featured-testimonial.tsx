@@ -1,20 +1,16 @@
 import type { PagebuilderType } from "@/types";
 import { RichText } from "../richtext";
 import { getImageUrl } from "../sanity-image";
-import { ParallaxBanner, ParallaxProvider } from "react-scroll-parallax";
 import { Parallax } from "../parallax";
 
 type FeaturedTestimonialBlockProps = PagebuilderType<"featuredTestimonial">;
 
-const parallaxImageFallback =
-  "https://cdn.sanity.io/images/4su5il1u/production/7185fa179c2a5296ce3b1c45a3511bd12dd82dfc-2000x1333.jpg?w=2000&h=1333&fm=webp&q=60&fit=max&auto=format";
-
 export function FeaturedTestimonialBlock({
   heading,
   testimonial,
-  background,
+  image,
 }: FeaturedTestimonialBlockProps) {
-  const parallaxImage = getImageUrl(background);
+  const parallaxImage = getImageUrl(image);
 
   return (
     <section id="featuredTestimonial" className="relative section">

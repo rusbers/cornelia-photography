@@ -120,7 +120,6 @@ const components: Partial<PortableTextReactComponents> = {
             className="w-full h-auto rounded-lg"
             width={1600}
             height={900}
-            // priority
           />
         </div>
       );

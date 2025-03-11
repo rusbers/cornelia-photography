@@ -182,7 +182,7 @@ const testimonialListBlock = /* groq */ `
         text,
         "category": category->title,
         "location": location->{country, region},
-        photo,
+        ${imageFragment},
       }
     }
 `;
@@ -191,7 +191,7 @@ const featuredTestimonialBlock = /* groq */ `
     _type == "featuredTestimonial" => {
       ...
       heading,
-      background,
+      ${imageFragment},
       testimonial->{
         ...,
         client,
@@ -204,6 +204,9 @@ const featuredTestimonialBlock = /* groq */ `
 const briefServicesDescriptionBlock = /* groq */ `
     _type == "briefServicesDescription" => {
       ...
+      firstText,
+      secondText,
+      ${imagesFragment},
     }
 `;
 
@@ -213,7 +216,13 @@ const pricesBlock = /* groq */ `
     pretitle,
     heading,
     currency,
-    pricingTiers[]->,
+    pricingTiers[]->{
+      ...,
+      price,
+      category,
+      content,
+      ${imageFragment},
+    },
     ${buttonFragment},
   }
 `;
@@ -223,7 +232,7 @@ const aboutMeBlock = /* groq */ `
     ...,
     pretitle,
     richText,
-    photo,
+    ${imageFragment},
     ${buttonFragment},
   }
 `;
@@ -234,14 +243,14 @@ const mySpecialities = /* groq */ `
     pretitle,
     heading,
     richText,
-    photos,
+    ${imagesFragment},
     ${buttonFragment},
   }
 `;
 const contactForm = /* groq */ `
   _type == "contactForm" => {
     ...,
-    intro
+    image,
   }
 `;
 

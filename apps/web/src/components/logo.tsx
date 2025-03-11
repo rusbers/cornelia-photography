@@ -43,7 +43,6 @@ export function Logo({
           priority={priority}
           loading="eager"
           decoding="sync"
-          quality={100}
         />
       ) : (
         <Image

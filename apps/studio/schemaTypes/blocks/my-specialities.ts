@@ -36,10 +36,22 @@ export const mySpecialities = defineType({
       },
     ),
     defineField({
-      name: "photos",
-      description: "Upload up to 2 vertical photos",
+      name: "images",
+      title: "Images",
+      description: "Upload 2 vertical images to mentain the section structure.",
       type: "array",
-      of: [defineArrayMember({ name: "photo", type: "image" })],
+      of: [
+        defineArrayMember({
+          type: "image",
+          options: { hotspot: true },
+        }),
+      ],
+      options: { layout: "grid" },
+      validation: (Rule) =>
+        Rule.required()
+          .min(2)
+          .max(2)
+          .warning("You must upload 2 vertical images."),
     }),
     defineField({ name: "button", type: "button" }),
   ],
