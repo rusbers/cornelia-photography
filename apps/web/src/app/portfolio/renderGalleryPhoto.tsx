@@ -1,9 +1,11 @@
-import { SanityImage } from "@/components/sanity-image";
+import { getBlurDataURL, SanityImage } from "@/components/sanity-image";
 import {
   type RenderImageContext as RenderImageContextLib,
   type RenderImageProps,
 } from "react-photo-album";
 import { type Photograph } from "./types";
+import { Image } from "./image-plugin";
+import { stegaClean } from "next-sanity";
 
 type RenderImageContext = RenderImageContextLib & {
   photo: Photograph;
@@ -16,19 +18,33 @@ export default function renderGalleryPhoto(
   if (!photo.asset) return null;
 
   return (
-    <div
+    <Image
       className="shadow-xl"
-      style={{
-        width: "100%",
-        position: "relative",
-        aspectRatio: `${width} / ${height}`,
-      }}
-    >
-      <SanityImage
-        asset={photo}
-        quality={65}
-        loading={index <= 2 ? "eager" : "lazy"}
-      />
-    </div>
+      id={photo.asset._ref}
+      width={width}
+      height={height}
+      alt={stegaClean(photo.alt) ?? "Image"}
+      queryParams={{ q: 75 }}
+      preview={getBlurDataURL(photo).blurDataURL || undefined}
+      loading={index <= 2 ? "eager" : "lazy"}
+      sizes="(max-width: 640px) 75vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+    />
   );
+
+  // return (
+  //   <div
+  //     className="shadow-xl"
+  //     style={{
+  //       width: "100%",
+  //       position: "relative",
+  //       aspectRatio: `${width} / ${height}`,
+  //     }}
+  //   >
+  //     <SanityImage
+  //       asset={photo}
+  //       quality={65}
+  //       loading={index <= 2 ? "eager" : "lazy"}
+  //     />
+  //   </div>
+  // );
 }

@@ -11,7 +11,7 @@ type ImageProps = {
   alt?: string;
 } & Omit<NextImageProps, "alt" | "src">;
 
-function getBlurDataURL(asset: SanityImageProps) {
+export function getBlurDataURL(asset: SanityImageProps) {
   if (asset?.blurData) {
     return {
       blurDataURL: asset.blurData,
