@@ -30,6 +30,7 @@
     "react-dom": "^19.0.0",
     "react-photo-album": "^3.0.2",
     "react-scroll-parallax": "^3.4.5",
+    "sanity-image": "^1.0.0",
     "server-only": "^0.0.1",
     "slugify": "^1.6.6",
     "yet-another-react-lightbox": "^3.21.7"
