@@ -30,8 +30,7 @@ import { styled } from "styled-components";
 import { getDocumentPath, stringToPathname } from "../utils/helper";
 import type { DocumentWithLocale } from "../utils/types";
 
-const presentationOriginUrl =
-  process.env.SANITY_STUDIO_PRESENTATION_URL || "http://localhost:3000";
+const presentationOriginUrl = process.env.SANITY_STUDIO_PRESENTATION_URL;
 
 const UnlockButton = styled(Button)`
   cursor: pointer;
