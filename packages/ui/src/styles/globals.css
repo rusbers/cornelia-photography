@@ -154,7 +154,7 @@
     @apply relative before:absolute before:bottom-5 before:left-0 before:right-5 before:top-0 before:border-4 before:border-[hsl(var(--border))] before:content-[''];
   }
   .fancy-background {
-    @apply bg-gradient-to-r from-[transparent_26%] to-[hsl(var(--background-secondary))_26%] pr-7 pt-7 sm:py-12 sm:pr-12;
+    @apply bg-gradient-to-r from-[transparent_26%] to-[hsl(var(--background-secondary))_26%] pr-7 pt-7 sm:py-7 sm:pr-7 xl:py-12 xl:pr-12;
   }
   .fancy-background-bottom {
     @apply bg-gradient-to-b from-[transparent_63%] to-[hsl(var(--background-secondary))_63%] px-12 pb-12;
