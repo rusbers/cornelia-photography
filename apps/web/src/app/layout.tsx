@@ -11,6 +11,7 @@ import { FooterServer, FooterSkeleton } from "@/components/footer";
 import { NavbarServer, NavbarSkeleton } from "@/components/navbar";
 import { PreviewBar } from "@/components/preview-bar";
 import { SanityLive } from "@/lib/sanity/live";
+import AOS from "@/components/AOS";
 
 const satoshi = localFont({
   src: "./fonts/Satoshi-Variable.woff2",
@@ -72,6 +73,7 @@ export default async function RootLayout({
 
         <SanityLive />
       </body>
+      <AOS />
     </html>
   );
 }
