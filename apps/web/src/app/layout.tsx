@@ -72,7 +72,7 @@ export default async function RootLayout({
         </Suspense>
         <SanityLive />
       </body>
-      <AOS />
+      {/* <AOS /> */}
     </html>
   );
 }
