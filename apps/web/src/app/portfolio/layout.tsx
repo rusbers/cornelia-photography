@@ -28,7 +28,7 @@ export default async function PortfolioLayout({
   const navigation = await fetchPortfolioNavigationData();
 
   return (
-    <div className="container">
+    <main className="container page-content pt-[126px] lg:pt-[137px]">
       <section className="section pt-16">
         <div className="mb-16">
           <div className="flex justify-center mb-5">
@@ -46,6 +46,6 @@ export default async function PortfolioLayout({
 
         {children}
       </section>
-    </div>
+    </main>
   );
 }

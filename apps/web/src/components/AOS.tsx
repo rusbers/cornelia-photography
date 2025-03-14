@@ -12,11 +12,9 @@ export default function AOS() {
           // global settings
           once: true,
           duration: 600,
-          // Add these options to help with scroll issues
           startEvent: "DOMContentLoaded",
           offset: 0,
-          // Disable on mobile if needed
-          // disable: window.innerWidth < 768
+          disable: window.innerWidth < 1024,
         });
 
         // Reset scroll position
