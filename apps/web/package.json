@@ -19,6 +19,7 @@
     "@sanity/preview-url-secret": "^2.1.4",
     "@sanity/visual-editing": "^2.13.5",
     "@workspace/ui": "workspace:*",
+    "aos": "^2.3.4",
     "babel-plugin-react-compiler": "19.0.0-beta-decd7b8-20250118",
     "embla-carousel-autoplay": "^8.5.2",
     "embla-carousel-fade": "^8.5.2",
@@ -36,6 +37,7 @@
     "yet-another-react-lightbox": "^3.21.7"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "18.3.0",
     "@types/react-dom": "18.3.1",
