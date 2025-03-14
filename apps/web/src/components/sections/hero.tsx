@@ -31,7 +31,7 @@ export function HeroBlock({ richText, images, button }: HeroBlockProps) {
         <Image
           data-aos="fade-up"
           data-aos-delay={1000}
-          className="hidden lg:block absolute right-[68px] bottom-4 z-50"
+          className="hidden lg:block absolute right-[68px] bottom-4 z-40"
           aria-hidden
           src="https://cdn.sanity.io/images/4su5il1u/production/fc0c9cd634ca1a602703a318d59900ba07ef8903-93x106.svg"
           width={93}

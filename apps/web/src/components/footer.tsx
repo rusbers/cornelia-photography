@@ -115,26 +115,24 @@ function Footer({ data }: FooterProps) {
   // return <FooterSkeleton />;
 
   return (
-    <div>
-      <footer className="bg-background-secondary border-t">
-        <div className="container border-b">
-          <div className="py-12 space-y-6 flex flex-col items-center">
-            <Logo src={logo} alt={siteTitle} priority={false} />
-            {subtitle && (
-              <p className="body-text-sm text-center balance md:max-w-[30rem] mx-auto">
-                {subtitle}
-              </p>
-            )}
+    <footer className="bg-background-secondary border-t">
+      <div className="container border-b">
+        <div className="py-12 space-y-6 flex flex-col items-center">
+          <Logo src={logo} alt={siteTitle} priority={false} />
+          {subtitle && (
+            <p className="body-text-sm text-center balance md:max-w-[30rem] mx-auto">
+              {subtitle}
+            </p>
+          )}
 
-            {socialLinks && <SocialLinks data={socialLinks} />}
-          </div>
-          <div className="py-4 border-t">
-            <small className="text-base text-center block">
-              &copy; {year} {siteTitle}
-            </small>
-          </div>
+          {socialLinks && <SocialLinks data={socialLinks} />}
         </div>
-      </footer>
-    </div>
+        <div className="py-4 border-t">
+          <small className="text-base text-center block">
+            &copy; {year} {siteTitle}
+          </small>
+        </div>
+      </div>
+    </footer>
   );
 }

@@ -360,11 +360,11 @@ function SkeletonDesktopNavbar() {
       <div className="h-[5.5rem] w-[11.75rem] bg-muted animate-pulse rounded-md" />
 
       <div className="justify-self-end">
-        <div className="flex items-center gap-4">
-          {Array.from({ length: 3 }).map((_, index) => (
+        <div className="flex items-center flex-wrap">
+          {Array.from({ length: 4 }).map((_, index) => (
             <div
               key={`nav-button-skeleton-${index.toString()}`}
-              className="h-12 w-32 rounded-[10px] bg-muted animate-pulse"
+              className="h-7 w-20 mx-2 rounded-[10px] bg-muted animate-pulse"
             />
           ))}
         </div>
