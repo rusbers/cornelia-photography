@@ -16,7 +16,10 @@ export function BriefServicesDescriptionBlock({
       className="section bg-background-secondary"
     >
       <div className="container grid gap-4 lg:gap-12 lg:grid-cols-[1fr_35%]">
-        <div className="brief-services-description-top flex flex-col space-y-4">
+        <div
+          data-aos="fade-up"
+          className="brief-services-description-top flex flex-col space-y-4"
+        >
           <RichText className="prose-h2:mb-5 mb-4" richText={firstText} />
           {images && images.length > 0 && (
             <div className="md:grid md:grid-cols-[1fr_35%] gap-x-4 space-y-4 md:space-y-0 lg:block">
@@ -38,7 +41,11 @@ export function BriefServicesDescriptionBlock({
             </div>
           )}
         </div>
-        <div className="brief-services-description-bottom flex flex-col lg:space-y-7">
+        <div
+          data-aos="fade-up"
+          data-aos-delay={200}
+          className="brief-services-description-bottom flex flex-col lg:space-y-7"
+        >
           {images && images[1] && (
             <SanityImage
               className="hidden lg:block"

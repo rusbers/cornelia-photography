@@ -12,6 +12,7 @@ import { NavbarServer, NavbarSkeleton } from "@/components/navbar";
 import { PreviewBar } from "@/components/preview-bar";
 import { SanityLive } from "@/lib/sanity/live";
 import AOS from "@/components/AOS";
+import { Loading } from "@/components/loading";
 
 const satoshi = localFont({
   src: "./fonts/Satoshi-Variable.woff2",
@@ -41,10 +42,9 @@ export default async function RootLayout({
         <Suspense fallback={<NavbarSkeleton />}>
           <NavbarServer />
         </Suspense>
-
         {(await draftMode()).isEnabled ? (
           <>
-            {children}
+            {<Suspense fallback={<Loading />}>{children}</Suspense>}
             <VisualEditing
               refresh={async (payload) => {
                 "use server";
@@ -65,12 +65,11 @@ export default async function RootLayout({
             <PreviewBar />
           </>
         ) : (
-          children
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         )}
         <Suspense fallback={<FooterSkeleton />}>
           <FooterServer />
         </Suspense>
-
         <SanityLive />
       </body>
       <AOS />

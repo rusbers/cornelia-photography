@@ -75,6 +75,7 @@ export function PageBuilder({
 
   return (
     <main
+      className="page-content pt-[126px] lg:pt-[137px]"
       data-sanity={createDataAttribute({
         id: id,
         baseUrl: studioUrl,

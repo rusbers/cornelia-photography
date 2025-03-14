@@ -164,24 +164,25 @@
 /* Sticky footer */
 /* https://stackoverflow.com/questions/49324760/sticky-header-disappearing-after-going-a-certain-ways-down-the-page */
 
-/* html {
+html,
+body {
   height: 100%;
 }
+
 body {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .page-header {
   flex: 0 0 auto;
 }
-.page-main {
+.page-content {
   flex: 1 0 auto;
 }
 .page-footer {
   flex: 0 0 auto;
-} */
+}
 
 /* MASONRY GRID SKELETONS */
 

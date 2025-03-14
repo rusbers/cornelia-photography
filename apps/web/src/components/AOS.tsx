@@ -8,6 +8,9 @@ export default function AOS() {
     import("aos").then((AOS) => {
       AOS.init({
         // global settings
+        disable: function () {
+          return window.innerWidth < 1024;
+        },
         once: true,
         duration: 600,
       });

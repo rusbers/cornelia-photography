@@ -81,9 +81,11 @@ function SocialLinks({ data }: SocialLinksProps) {
   );
 }
 
+const FOOTER_STYLES = "page-footer bg-background-secondary border-t";
+
 export function FooterSkeleton() {
   return (
-    <footer className="bg-background-secondary border-t">
+    <footer className={FOOTER_STYLES}>
       <div className="container border-b z-50">
         <div className="py-12 space-y-6 flex flex-col items-center">
           <div className="w-[10.3125rem] h-[4.8125rem] bg-[#e7dada] animate-pulse rounded-md" />
@@ -112,10 +114,8 @@ function Footer({ data }: FooterProps) {
   const { subtitle, socialLinks, logo, siteTitle } = data;
   const year = new Date().getFullYear();
 
-  // return <FooterSkeleton />;
-
   return (
-    <footer className="bg-background-secondary border-t">
+    <footer className={FOOTER_STYLES}>
       <div className="container border-b">
         <div className="py-12 space-y-6 flex flex-col items-center">
           <Logo src={logo} alt={siteTitle} priority={false} />

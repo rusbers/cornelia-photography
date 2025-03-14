@@ -348,7 +348,8 @@ const ClientSideNavbar = ({
 function SkeletonMobileNavbar() {
   return (
     <div className="grid grid-cols-[auto,_1fr] gap-4 items-center lg:hidden">
-      <div className="w-[10.3125rem] h-[4.8125rem] bg-muted animate-pulse rounded-md" />
+      {/* <div className="w-[10.3125rem] h-[4.8125rem] bg-muted animate-pulse rounded-md" /> */}
+      <Logo />
       <div className="justify-self-end rounded-md bg-muted animate-pulse size-10" />
     </div>
   );
@@ -357,8 +358,8 @@ function SkeletonMobileNavbar() {
 function SkeletonDesktopNavbar() {
   return (
     <div className="hidden lg:grid grid-cols-[auto,_1fr] gap-4 items-center">
-      <div className="h-[5.5rem] w-[11.75rem] bg-muted animate-pulse rounded-md" />
-
+      {/* <div className="h-[5.5rem] w-[11.75rem] bg-muted animate-pulse rounded-md" /> */}
+      <Logo className="lg:h-[88px] lg:w-[188px] shrink-0" />
       <div className="justify-self-end">
         <div className="flex items-center flex-wrap">
           {Array.from({ length: 4 }).map((_, index) => (
