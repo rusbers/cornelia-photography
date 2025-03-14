@@ -16,11 +16,7 @@ export function HeroBlock({ richText, images, button }: HeroBlockProps) {
           images && images.length > 1 && "xl:grid-cols-[38%,_1fr]",
         )}
       >
-        <div
-          data-aos="fade-up"
-          data-aos-delay={300}
-          className="flex flex-col gap-y-7"
-        >
+        <div className="flex flex-col gap-y-7">
           <RichText
             className="prose-h1:max-md:text-[2.5rem] prose-h1:max-md:leading-tight prose-h1:mb-7 prose-p:first-of-type:mt-0 prose-p:mt-4 prose-p:text-balance"
             richText={richText}
@@ -29,8 +25,6 @@ export function HeroBlock({ richText, images, button }: HeroBlockProps) {
         </div>
         <ImageDisplay images={images} />
         <Image
-          data-aos="fade-up"
-          data-aos-delay={1000}
           className="hidden lg:block absolute right-[68px] bottom-4 z-40"
           aria-hidden
           src="https://cdn.sanity.io/images/4su5il1u/production/fc0c9cd634ca1a602703a318d59900ba07ef8903-93x106.svg"
@@ -86,8 +80,6 @@ const MultipleImagesComponent = ({
         COMMON_IMAGES_CONTAINER_STYLES,
         "max-w-[28.125rem] sm:max-w-none grid gap-12 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 md:self-start",
       )}
-      data-aos="fade-up"
-      data-aos-delay={450}
     >
       {images.map((image, i) => (
         <SanityImage
@@ -95,8 +87,6 @@ const MultipleImagesComponent = ({
             "w-full",
             "last-of-type:hidden last-of-type:sm:block last-of-type:lg:hidden last-of-type:xl:block",
           )}
-          data-aos="fade-up"
-          data-aos-delay={i * 450}
           key={image._key}
           asset={image}
           width={623}
