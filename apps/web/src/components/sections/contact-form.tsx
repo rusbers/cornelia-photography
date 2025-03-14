@@ -81,7 +81,7 @@ export function ContactForm({ image }: ContactFormProps) {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Contact me on Whatsapp"
-                        href="https://wa.me/+353852763436"
+                        href="https://wa.me/+353894938067"
                       >
                         <Whatsapp />
                         <span>Whatsapp</span>

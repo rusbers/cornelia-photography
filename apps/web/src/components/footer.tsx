@@ -9,6 +9,7 @@ import Whatsapp from "./icons/social/Whatsapp";
 import { Logo } from "./logo";
 // TODO to change these icons
 import { LinkedinIcon, XIcon, YoutubeIcon } from "./social-icons";
+import { stegaClean } from "next-sanity";
 
 interface SocialLinksProps {
   data: NonNullable<QueryFooterDataResult>["socialLinks"];
@@ -52,7 +53,7 @@ function SocialLinks({ data }: SocialLinksProps) {
       label: "Subscribe to my YouTube channel",
     },
     {
-      url: `https://wa.me/${whatsapp}`,
+      url: `https://wa.me/${stegaClean(whatsapp)}`,
       Icon: Whatsapp,
       label: "Contact me on Whatsapp",
     },
