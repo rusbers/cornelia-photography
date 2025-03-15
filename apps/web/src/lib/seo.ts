@@ -20,8 +20,10 @@ function getOgImage({ type, id }: OgImageOptions = {}): string {
 
 interface MetaDataInput {
   _type?: Maybe<string>;
+  ogDescription?: Maybe<string>;
   seoDescription?: Maybe<string>;
   seoTitle?: Maybe<string>;
+  ogTitle?: Maybe<string>;
   slug?: Maybe<{ current: string | null }> | string | null;
   title?: Maybe<string>;
   description?: Maybe<string>;
@@ -29,8 +31,17 @@ interface MetaDataInput {
 }
 
 export function getMetaData(data: MetaDataInput): Metadata {
-  const { _type, seoDescription, seoTitle, slug, title, description, _id } =
-    data ?? {};
+  const {
+    _type,
+    seoDescription,
+    seoTitle,
+    slug,
+    title,
+    description,
+    ogDescription,
+    ogTitle,
+    _id,
+  } = data ?? {};
 
   const baseUrl = getBaseUrl();
   const pageSlug = typeof slug === "string" ? slug : (slug?.current ?? "");
@@ -125,8 +136,8 @@ export function getMetaData(data: MetaDataInput): Metadata {
     openGraph: {
       type: "website",
       countryName: "Ireland",
-      description: meta.description,
-      title: meta.title,
+      description: ogDescription ?? meta.description,
+      title: ogTitle ?? meta.title,
       images: [
         {
           url: ogImage,
