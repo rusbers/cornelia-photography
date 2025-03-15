@@ -50,11 +50,12 @@ export function MySpecialities({
           </div>
           {images?.map((image) => (
             <SanityImage
-              width={828}
-              height={1242}
+              width={671}
+              height={1007}
               className="first-of-type:order-first first-of-type:md:order-none first-of-type:lg:order-first"
               key={image._key}
               asset={image}
+              sizes="(max-width: 768px) 80vw, (max-width: 1024px) 48vw, 33vw"
             />
           ))}
         </div>

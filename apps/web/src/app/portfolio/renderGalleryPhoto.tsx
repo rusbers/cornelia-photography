@@ -27,7 +27,7 @@ export default function renderGalleryPhoto(
       queryParams={{ q: 75 }}
       preview={getBlurDataURL(photo).blurDataURL || undefined}
       loading={index <= 2 ? "eager" : "lazy"}
-      sizes="(max-width: 640px) 75vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+      sizes="(max-width: 584px) 90vw, (max-width: 1024px) 45vw, 28vw"
     />
   );
 

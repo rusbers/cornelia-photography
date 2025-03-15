@@ -30,13 +30,15 @@ export function PricesBlock({
               className="p-4 bg-background-secondary max-w-[37.5rem] flex"
             >
               <div className="border-4 p-4 pb-16 flex flex-col gap-12">
-                <div className=";g:p-4 xl:p-0">
+                <div className="lg:p-4 xl:p-0">
                   <SanityImage
-                    width={604}
-                    height={427}
+                    width={528}
+                    height={372}
                     className="shadow-xl"
                     loading="eager"
                     asset={pricing.image}
+                    sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 25vw"
+                    quality={75}
                   />
                 </div>
 

@@ -33,6 +33,7 @@ export const aboutMe = defineType({
       title: "Your photo",
       type: "image",
       description: "Upload up to 2 images that best represent you.",
+      options: { hotspot: true },
     }),
     defineField({ name: "button", type: "button" }),
   ],
