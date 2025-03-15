@@ -32,30 +32,24 @@ export function TestimonialListBlock({
             opts={{ loop: true }}
             plugins={[
               Autoplay({
-                delay: 3000,
+                delay: 5000,
               }),
             ]}
           >
             <CarouselContent>
               {testimonials?.map((testimonial) => (
                 <CarouselItem
-                  className="flex flex-col items-center justify-center md:grid md:grid-cols-[auto_1fr] md:gap-4 lg:gap-6"
+                  className="flex flex-col items-center justify-center md:grid md:grid-cols-[auto_1fr] md:gap-4 lg:gap-6 select-none active:cursor-grab"
                   key={testimonial._id}
                 >
-                  <SanityImage
-                    aria-hidden={true}
-                    className="rounded-full mb-4 md:mb-0 shadow-2xl size-32 md:size-48 shrink-0 md:shadow-sm md:justify-self-center lg:hidden"
-                    asset={testimonial.image}
-                    width={300}
-                    height={300}
-                    loading="eager"
-                  />
-                  <div className="hidden lg:block fancy-border relative  self-start pl-5 pt-5 before:-z-10">
+                  <div className="max-w-[17.5rem] mb-4 lg:mb-0 shrink-0 lg:justify-self-center lg:fancy-border lg:relative  lg:self-start lg:pl-5 lg:pt-5 lg:before:-z-10">
                     <SanityImage
+                      className="size-32 md:size-48 lg:h-full lg:w-[17.5rem] shadow-2xl md:shadow-sm aspect-square lg:aspect-[280/420] object-cover rounded-full lg:rounded-none"
                       asset={testimonial.image}
                       width={280}
                       height={420}
-                      loading="eager"
+                      quality={75}
+                      sizes="(max-width: 1024px) 20vw, 25vw"
                     />
                   </div>
                   <figure className="md:self-center lg:flex lg:flex-col lg:gap-4">
