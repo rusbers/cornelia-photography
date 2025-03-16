@@ -27,9 +27,9 @@ export function AboutMe({ pretitle, richText, button, image }: AboutMeProps) {
               priority
               width={606}
               height={807}
-              quality={80}
+              quality={75}
               asset={image}
-              sizes="(min-width: 1580px) 406px, (min-width: 1280px) calc(10vw + 250px), (min-width: 1040px) calc(40vw - 86px), (min-width: 800px) 606px, (min-width: 640px) 78.57vw, calc(100vw - 88px)"
+              sizes="(max-width: 1024px) 80vw, 30vw"
             />
           </div>
         </div>
