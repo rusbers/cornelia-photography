@@ -35,7 +35,7 @@ export function PricesBlock({
                     width={528}
                     height={372}
                     className="shadow-xl"
-                    loading="eager"
+                    priority
                     asset={pricing.image}
                     sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 25vw"
                     quality={75}
