@@ -14,6 +14,7 @@ import { SanityLive } from "@/lib/sanity/live";
 import AOS from "@/components/AOS";
 import { Loading } from "@/components/loading";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const satoshi = localFont({
   src: "./fonts/Satoshi-Variable.woff2",
@@ -72,6 +73,7 @@ export default async function RootLayout({
           <FooterServer />
         </Suspense>
         <SanityLive />
+        <SpeedInsights />
         <Analytics />
       </body>
       {/* <AOS /> */}
