@@ -63,7 +63,6 @@ export default function renderLightboxPhoto({
         offset === 0 ? () => click?.({ index: currentIndex }) : undefined
       }
       draggable={false}
-      loading="eager"
     />
   );
 

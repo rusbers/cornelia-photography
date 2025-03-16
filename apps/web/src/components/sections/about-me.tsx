@@ -29,7 +29,7 @@ export function AboutMe({ pretitle, richText, button, image }: AboutMeProps) {
               height={807}
               quality={80}
               asset={image}
-              sizes="(max-width: 1024px) 80vw, 30vw"
+              sizes="(min-width: 1580px) 406px, (min-width: 1280px) calc(10vw + 250px), (min-width: 1040px) calc(40vw - 86px), (min-width: 800px) 606px, (min-width: 640px) 78.57vw, calc(100vw - 88px)"
             />
           </div>
         </div>

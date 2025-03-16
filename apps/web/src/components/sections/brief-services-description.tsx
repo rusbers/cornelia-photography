@@ -26,7 +26,7 @@ export function BriefServicesDescriptionBlock({
                 width={767}
                 height={551}
                 quality={80}
-                sizes="(max-width: 768px) 75vw, 65vw"
+                sizes="(min-width: 1440px) 767px, (min-width: 1040px) 52.89vw, (min-width: 780px) calc(69.58vw - 60px), (min-width: 640px) calc(100vw - 96px), calc(100vw - 40px)"
               />
               <SanityImage
                 aria-hidden={true}
@@ -35,7 +35,7 @@ export function BriefServicesDescriptionBlock({
                 width={671}
                 height={970}
                 quality={80}
-                sizes="(max-width: 768px) 75vw, 25vw"
+                sizes="(min-width: 780px) calc(35vw - 34px), (min-width: 640px) calc(100vw - 96px), calc(100vw - 40px)"
               />
             </div>
           )}

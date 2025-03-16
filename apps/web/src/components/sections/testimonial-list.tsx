@@ -49,7 +49,7 @@ export function TestimonialListBlock({
                       width={280}
                       height={420}
                       quality={75}
-                      sizes="(max-width: 1024px) 20vw, 25vw"
+                      sizes="(min-width: 1040px) 260px, (min-width: 780px) 192px, 128px"
                     />
                   </div>
                   <figure className="md:self-center lg:flex lg:flex-col lg:gap-4">
