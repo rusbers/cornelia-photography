@@ -22,9 +22,9 @@ export function AboutMe({ pretitle, richText, button, image }: AboutMeProps) {
               <SanityButton {...button} />
             </div>
           </div>
-          <div className="mb-12 fancy-background-bottom lg:mb-0 lg:order-first max-xl:pl-6 max-xl:pr-6 max-xl:pb-6">
+          <div className="mb-12 fancy-background-bottom lg:mb-0 lg:order-first max-xl:pl-6 max-xl:pr-6 max-xl:pb-6 self-start">
             <SanityImage
-              loading="eager"
+              priority
               width={606}
               height={807}
               quality={80}

@@ -27,14 +27,14 @@ export function FeaturedTestimonialBlock({
               </span>
               <blockquote>
                 <RichText
-                  className="testimonial-content text-center prose-p:text-2xl lg:prose-p:text-[1.75rem] prose-p:font-serif prose-p:font-semibold prose-p:leading-normal prose-p:text-foreground-heading"
+                  className="testimonial-content text-center prose-p:text-2xl lg:prose-p:text-[1.75rem] prose-p:font-serif prose-p:font-medium prose-p:leading-normal prose-p:text-foreground-heading"
                   richText={testimonial?.text}
                 />
               </blockquote>
-              <p className="text-accent-foreground">
+              <span className="text-accent-foreground text-2xl">
                 <span>&mdash; </span>
                 {testimonial?.client}
-              </p>
+              </span>
             </div>
           </div>
         </div>
