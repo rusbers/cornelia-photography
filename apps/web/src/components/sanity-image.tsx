@@ -49,7 +49,7 @@ export function SanityImage({
     alt: stegaClean(alt) ?? stegaClean(asset.alt) ?? "Image",
     "aria-label": stegaClean(alt) ?? stegaClean(asset.alt) ?? "Image",
     src: url,
-    className: cn(className),
+    className: cn("sanity-image", className),
     // Optimize image sizes for performance and LCP
     // Use smaller percentages to reduce initial load size while maintaining quality
     // Order from smallest to largest breakpoint for better browser parsing

@@ -19,7 +19,7 @@ export default function renderGalleryPhoto(
 
   return (
     <Image
-      className="shadow-xl"
+      className="shadow-xl sanity-image-plugin"
       id={photo.asset._ref}
       width={width}
       height={height}

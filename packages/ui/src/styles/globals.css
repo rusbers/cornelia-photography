@@ -253,3 +253,11 @@ body {
 .yarl__thumbnails_thumbnail_active {
   border: 1px whitesmoke solid;
 }
+
+.sanity-image,
+.sanity-image-plugin {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}

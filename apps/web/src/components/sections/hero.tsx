@@ -3,7 +3,6 @@ import { RichText } from "../richtext";
 import { SanityButton } from "../sanity-buttons";
 import { SanityImage } from "../sanity-image";
 import { cn } from "@workspace/ui/lib/utils";
-import Image from "next/image";
 
 type HeroBlockProps = PagebuilderType<"hero">;
 
@@ -24,7 +23,7 @@ export function HeroBlock({ richText, images, button }: HeroBlockProps) {
           <SanityButton className="self-start" {...button} />
         </div>
         <ImageDisplay images={images} />
-        <Image
+        <img
           className="hidden lg:block absolute right-[68px] bottom-4 z-40"
           aria-hidden
           src="https://cdn.sanity.io/images/4su5il1u/production/fc0c9cd634ca1a602703a318d59900ba07ef8903-93x106.svg"
