@@ -9,7 +9,7 @@ import {
   Slide,
 } from "yet-another-react-lightbox";
 import { Photograph } from "./types";
-import { Image } from "./image-plugin";
+import { SanityImagePluginWrapper } from "@/components/sanity-image-plugin-wrapper";
 import { stegaClean } from "next-sanity";
 
 function isNextJsImage(slide: Slide): slide is StaticImageData {
@@ -51,7 +51,7 @@ export default function renderLightboxPhoto({
   if (!slide.asset) return null;
 
   return (
-    <Image
+    <SanityImagePluginWrapper
       id={slide.asset?._ref}
       width={rect.width}
       height={rect.height}

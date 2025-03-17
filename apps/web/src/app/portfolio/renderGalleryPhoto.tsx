@@ -4,7 +4,7 @@ import {
   type RenderImageProps,
 } from "react-photo-album";
 import { type Photograph } from "./types";
-import { Image } from "./image-plugin";
+import { SanityImagePluginWrapper } from "@/components/sanity-image-plugin-wrapper";
 import { stegaClean } from "next-sanity";
 
 type RenderImageContext = RenderImageContextLib & {
@@ -18,7 +18,7 @@ export default function renderGalleryPhoto(
   if (!photo.asset) return null;
 
   return (
-    <Image
+    <SanityImagePluginWrapper
       className="shadow-xl sanity-image-plugin"
       id={photo.asset._ref}
       width={width}

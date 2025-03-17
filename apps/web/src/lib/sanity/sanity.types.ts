@@ -161,6 +161,7 @@ export type MySpecialities = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    imageDescription?: string;
     _type: "image";
     _key: string;
   }>;
@@ -197,6 +198,7 @@ export type AboutMe = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    imageDescription?: string;
     _type: "image";
   };
   button?: Button;
@@ -818,6 +820,7 @@ export type PortfolioIndex = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    imageDescription?: string;
     _type: "image";
     _key: string;
   }>;
@@ -934,6 +937,7 @@ export type Pricing = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    imageDescription?: string;
     _type: "image";
   };
 };
@@ -1089,6 +1093,7 @@ export type Portfolio = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    imageDescription?: string;
     _type: "image";
     _key: string;
   }>;
@@ -1512,8 +1517,8 @@ export type QueryHomePageDataResult = {
           };
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
+          imageDescription: string | null;
           _type: "image";
-          imageDescription: null;
           alt: string | "Image-Broken";
           blurData: string | null;
           dominantColor: string | null;
@@ -2127,9 +2132,9 @@ export type QueryHomePageDataResult = {
           };
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
+          imageDescription: string | null;
           _type: "image";
           _key: string;
-          imageDescription: null;
           alt: string | "Image-Broken";
           blurData: string | null;
           dominantColor: string | null;
@@ -2201,8 +2206,8 @@ export type QueryHomePageDataResult = {
             };
             hotspot?: SanityImageHotspot;
             crop?: SanityImageCrop;
+            imageDescription: string | null;
             _type: "image";
-            imageDescription: null;
             alt: string | "Image-Broken";
             blurData: string | null;
             dominantColor: string | null;
@@ -2416,8 +2421,8 @@ export type QuerySlugPageDataResult = {
           };
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
+          imageDescription: string | null;
           _type: "image";
-          imageDescription: null;
           alt: string | "Image-Broken";
           blurData: string | null;
           dominantColor: string | null;
@@ -3031,9 +3036,9 @@ export type QuerySlugPageDataResult = {
           };
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
+          imageDescription: string | null;
           _type: "image";
           _key: string;
-          imageDescription: null;
           alt: string | "Image-Broken";
           blurData: string | null;
           dominantColor: string | null;
@@ -3105,8 +3110,8 @@ export type QuerySlugPageDataResult = {
             };
             hotspot?: SanityImageHotspot;
             crop?: SanityImageCrop;
+            imageDescription: string | null;
             _type: "image";
-            imageDescription: null;
             alt: string | "Image-Broken";
             blurData: string | null;
             dominantColor: string | null;
@@ -3321,8 +3326,8 @@ export type QueryBlogIndexPageDataResult = {
           };
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
+          imageDescription: string | null;
           _type: "image";
-          imageDescription: null;
           alt: string | "Image-Broken";
           blurData: string | null;
           dominantColor: string | null;
@@ -3936,9 +3941,9 @@ export type QueryBlogIndexPageDataResult = {
           };
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
+          imageDescription: string | null;
           _type: "image";
           _key: string;
-          imageDescription: null;
           alt: string | "Image-Broken";
           blurData: string | null;
           dominantColor: string | null;
@@ -4010,8 +4015,8 @@ export type QueryBlogIndexPageDataResult = {
             };
             hotspot?: SanityImageHotspot;
             crop?: SanityImageCrop;
+            imageDescription: string | null;
             _type: "image";
-            imageDescription: null;
             alt: string | "Image-Broken";
             blurData: string | null;
             dominantColor: string | null;
@@ -4408,6 +4413,7 @@ export type QueryPortfolioIndexPageDataResult = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    imageDescription?: string;
     _type: "image";
     _key: string;
     width: number | null;
@@ -4453,6 +4459,7 @@ export type QueryPortfolioSlugPageDataResult = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    imageDescription?: string;
     _type: "image";
     _key: string;
     width: number | null;

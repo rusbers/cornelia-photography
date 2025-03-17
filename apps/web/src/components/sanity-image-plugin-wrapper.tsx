@@ -17,10 +17,11 @@ import { SanityImage, type WrapperProps } from "sanity-image";
  * />
  * ```
  */
-export const Image = <T extends React.ElementType = "img">(
+export const SanityImagePluginWrapper = <T extends React.ElementType = "img">(
   props: WrapperProps<T>,
 ) => (
   <SanityImage
+    className="sanity-image-plugin"
     baseUrl="https://cdn.sanity.io/images/4su5il1u/production/"
     {...props}
   />

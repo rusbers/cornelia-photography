@@ -11,6 +11,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
 import { HeadlineFlower } from "../icons";
+import SanityImagePlugin from "../sanity-image-plugin";
 
 type TestimonialListBlockProps = PagebuilderType<"testimonialList">;
 
@@ -43,7 +44,14 @@ export function TestimonialListBlock({
                   key={testimonial._id}
                 >
                   <div className="max-w-[17.5rem] mb-4 lg:mb-0 shrink-0 lg:justify-self-center lg:fancy-border lg:relative  lg:self-start lg:pl-5 lg:pt-5 lg:before:-z-10">
-                    <SanityImage
+                    <SanityImagePlugin
+                      className="size-32 md:size-48 lg:h-full lg:w-[17.5rem] shadow-2xl md:shadow-sm aspect-square lg:aspect-[280/420] object-cover rounded-full lg:rounded-none"
+                      asset={testimonial.image}
+                      width={280}
+                      height={420}
+                      sizes="(min-width: 1040px) 260px, (min-width: 780px) 192px, 128px"
+                    />
+                    {/* <SanityImage
                       className="size-32 md:size-48 lg:h-full lg:w-[17.5rem] shadow-2xl md:shadow-sm aspect-square lg:aspect-[280/420] object-cover rounded-full lg:rounded-none"
                       asset={testimonial.image}
                       alt={testimonial.image?.imageDescription || undefined}
@@ -51,7 +59,7 @@ export function TestimonialListBlock({
                       height={420}
                       quality={75}
                       sizes="(min-width: 1040px) 260px, (min-width: 780px) 192px, 128px"
-                    />
+                    /> */}
                   </div>
                   <figure className="md:self-center lg:flex lg:flex-col lg:gap-4">
                     <blockquote className="mb-4 lg:mb-0">

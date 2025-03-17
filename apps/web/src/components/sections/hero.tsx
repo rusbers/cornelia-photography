@@ -3,6 +3,7 @@ import { RichText } from "../richtext";
 import { SanityButton } from "../sanity-buttons";
 import { SanityImage } from "../sanity-image";
 import { cn } from "@workspace/ui/lib/utils";
+import Image from "../sanity-image-plugin";
 
 type HeroBlockProps = PagebuilderType<"hero">;
 
@@ -44,8 +45,7 @@ const SingleImageComponent = ({
 }: {
   images: HeroBlockProps["images"];
 }) => {
-  if (!images || images.length !== 1) return null;
-  console.log(images);
+  if (!images || !images[0]) return null;
 
   return (
     <div
@@ -54,7 +54,15 @@ const SingleImageComponent = ({
         "max-w-[28.125rem] lg:w-full",
       )}
     >
-      <SanityImage
+      {images[0] && <Image asset={images[0]} />}
+      <Image
+        className="w-full"
+        asset={images[0]}
+        width={623}
+        loading="eager"
+        sizes="(min-width: 1580px) 331px, (min-width: 1280px) calc(8.21vw + 203px), calc(53.68vw - 93px)"
+      />
+      {/* <SanityImage
         className="w-full"
         key={images[0]?._key}
         asset={images[0]}
@@ -64,7 +72,7 @@ const SingleImageComponent = ({
         alt={images[0]?.imageDescription || undefined}
         priority
         sizes="(min-width: 1560px) 309px, (min-width: 1280px) calc(8.46vw + 179px), (min-width: 1040px) calc(40vw - 66px), (min-width: 640px) calc(50vw - 86px), (min-width: 520px) 422px, calc(95vw - 53px)"
-      />
+      /> */}
     </div>
   );
 };
@@ -80,24 +88,35 @@ const MultipleImagesComponent = ({
     <div
       className={cn(
         COMMON_IMAGES_CONTAINER_STYLES,
-        "max-w-[28.125rem] sm:max-w-none grid gap-12 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 md:self-start",
+        "max-w-[28.125rem] sm:max-w-none grid gap-12 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 md:self-start items-stretch",
       )}
     >
       {images.map((image, i) => (
-        <SanityImage
+        <Image
           className={cn(
             "w-full",
-            "last-of-type:hidden last-of-type:sm:block last-of-type:lg:hidden last-of-type:xl:block",
+            "last-of-type:hidden last-of-type:sm:block last-of-type:lg:hidden last-of-type:xl:block object-cover",
           )}
-          key={image._key}
-          asset={image}
+          key={image._key + i}
           width={623}
-          height={945}
-          quality={75}
-          priority
-          alt={image.imageDescription || undefined}
-          sizes="(min-width: 1560px) 309px, (min-width: 1280px) calc(8.46vw + 179px), (min-width: 1040px) calc(40vw - 66px), (min-width: 640px) calc(50vw - 86px), (min-width: 520px) 422px, calc(95vw - 53px)"
+          asset={image}
+          loading="eager"
+          sizes="(min-width: 1580px) 331px, (min-width: 1280px) calc(8.21vw + 203px), calc(53.68vw - 93px)"
         />
+        // <SanityImage
+        //   className={cn(
+        //     "w-full",
+        //     "last-of-type:hidden last-of-type:sm:block last-of-type:lg:hidden last-of-type:xl:block",
+        //   )}
+        //   key={image._key}
+        //   asset={image}
+        //   width={623}
+        //   height={945}
+        //   quality={75}
+        //   priority
+        //   alt={image.imageDescription || undefined}
+        //   sizes="(min-width: 1560px) 309px, (min-width: 1280px) calc(8.46vw + 179px), (min-width: 1040px) calc(40vw - 66px), (min-width: 640px) calc(50vw - 86px), (min-width: 520px) 422px, calc(95vw - 53px)"
+        // />
       ))}
     </div>
   );
