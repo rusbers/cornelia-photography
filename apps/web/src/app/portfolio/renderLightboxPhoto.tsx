@@ -59,7 +59,7 @@ export default function renderLightboxPhoto({
         //@ts-ignore
         stegaClean(slide?.imageDescription) ?? stegaClean(slide.alt) ?? "Image"
       }
-      queryParams={{ q: 75 }}
+      queryParams={{ q: 100 }}
       preview={getBlurDataURL(slide).blurDataURL || undefined}
       sizes={`${Math.ceil((width / window.innerWidth) * 100)}vw`}
       onClick={

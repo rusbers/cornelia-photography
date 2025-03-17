@@ -27,7 +27,7 @@ export default function renderGalleryPhoto(
         //@ts-ignore
         stegaClean(photo?.imageDescription) ?? stegaClean(photo.alt) ?? "Image"
       }
-      queryParams={{ q: 75 }}
+      queryParams={{ q: 100 }}
       preview={getBlurDataURL(photo).blurDataURL || undefined}
       loading={index <= 2 ? "eager" : "lazy"}
       sizes="(max-width: 584px) 90vw, (max-width: 1024px) 45vw, 28vw"
