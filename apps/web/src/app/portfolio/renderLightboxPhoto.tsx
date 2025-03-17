@@ -55,7 +55,10 @@ export default function renderLightboxPhoto({
       id={slide.asset?._ref}
       width={rect.width}
       height={rect.height}
-      alt={stegaClean(slide.alt) ?? "Image"}
+      alt={
+        //@ts-ignore
+        stegaClean(slide?.imageDescription) ?? stegaClean(slide.alt) ?? "Image"
+      }
       queryParams={{ q: 75 }}
       preview={getBlurDataURL(slide).blurDataURL || undefined}
       sizes={`${Math.ceil((width / window.innerWidth) * 100)}vw`}

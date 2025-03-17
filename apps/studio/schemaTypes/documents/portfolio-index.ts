@@ -1,10 +1,10 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 
 import { GROUP, GROUPS } from "../../utils/constant";
 import { ogFields } from "../../utils/og-fields";
 import { seoFields } from "../../utils/seo-fields";
 import { createSlug, isUnique } from "../../utils/slug";
-import { pageBuilderField } from "../common";
+import { createImagesField } from "../definitions/images";
 
 export const portfolioIndex = defineType({
   name: "portfolioIndex",
@@ -34,45 +34,13 @@ export const portfolioIndex = defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
+    createImagesField({
       name: "photos",
       title: "Featured Photos",
       description:
         "Select photos which you want to include in the 'All' category. Recommended at least 10 photos",
-      type: "array",
-      of: [
-        defineArrayMember({
-          type: "image",
-          options: {
-            hotspot: true,
-          },
-        }),
-      ],
-      validation: (rule) => rule.min(10),
-      options: { layout: "grid" },
       group: GROUP.MAIN_CONTENT,
     }),
-    // defineField({
-    //   name: "featured",
-    //   title: "Featured Blogs",
-    //   description:
-    //     "Select up to 3 blogs to feature on this page. These blogs will be displayed prominently on the page.",
-    //   type: "array",
-    //   of: [
-    //     defineArrayMember({
-    //       type: "reference",
-    //       to: [
-    //         {
-    //           type: "blog",
-    //           options: { disableNew: true },
-    //         },
-    //       ],
-    //       validation: (rule) => [rule.required()],
-    //     }),
-    //   ],
-    //   validation: (rule) => [rule.max(1), rule.unique()],
-    //   group: GROUP.MAIN_CONTENT,
-    // }),
     ...seoFields.filter(
       (field) => !["seoNoIndex", "seoHideFromLists"].includes(field.name),
     ),

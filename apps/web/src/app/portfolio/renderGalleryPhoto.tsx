@@ -23,7 +23,10 @@ export default function renderGalleryPhoto(
       id={photo.asset._ref}
       width={width}
       height={height}
-      alt={stegaClean(photo.alt) ?? "Image"}
+      alt={
+        //@ts-ignore
+        stegaClean(photo?.imageDescription) ?? stegaClean(photo.alt) ?? "Image"
+      }
       queryParams={{ q: 75 }}
       preview={getBlurDataURL(photo).blurDataURL || undefined}
       loading={index <= 2 ? "eager" : "lazy"}

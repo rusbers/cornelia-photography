@@ -1,6 +1,5 @@
 import { type PagebuilderType } from "@/types";
 import { RichText } from "../richtext";
-import Link from "next/link";
 import { SanityImage } from "../sanity-image";
 import { SanityButton } from "../sanity-buttons";
 import { cn } from "@workspace/ui/lib/utils";

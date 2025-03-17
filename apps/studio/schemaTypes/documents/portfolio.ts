@@ -5,6 +5,8 @@ import { GROUP, GROUPS } from "../../utils/constant";
 import { ogFields } from "../../utils/og-fields";
 import { seoFields } from "../../utils/seo-fields";
 import { createSlug, isUnique } from "../../utils/slug";
+import { createImageField } from "../definitions/image";
+import { createImagesField } from "../definitions/images";
 
 export const portfolio = defineType({
   name: "portfolio",
@@ -52,20 +54,9 @@ export const portfolio = defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
+    createImagesField({
       name: "photos",
       title: "Photos",
-      type: "array",
-      of: [
-        defineArrayMember({
-          type: "image",
-          options: {
-            hotspot: true,
-          },
-        }),
-      ],
-      options: { layout: "grid" },
-      validation: (Rule) => Rule.required(),
       group: GROUP.MAIN_CONTENT,
     }),
     ...seoFields,

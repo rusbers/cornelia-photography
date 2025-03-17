@@ -3,15 +3,17 @@ import { type ArrayRule, defineArrayMember, defineField } from "sanity";
 export const createImagesField = ({
   name = "images",
   title = "Images",
-  description = "Upload several images",
+  description,
   includeAltText = true,
   validation,
+  group,
 }: {
   name?: string;
   title?: string;
   description?: string;
   validation?: (rule: ArrayRule<unknown[]>) => ArrayRule<unknown[]>;
   includeAltText?: boolean;
+  group?: string;
 } = {}) => {
   return defineField({
     name,
@@ -43,5 +45,6 @@ export const createImagesField = ({
     options: { layout: "grid" },
     description,
     validation,
+    group,
   });
 };
