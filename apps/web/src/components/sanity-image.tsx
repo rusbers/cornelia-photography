@@ -27,7 +27,7 @@ export function SanityImage({
   width,
   height,
   className,
-  quality = 75,
+  quality = 80,
   fill,
   ...props
 }: ImageProps) {

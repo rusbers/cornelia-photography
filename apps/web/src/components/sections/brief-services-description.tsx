@@ -15,48 +15,43 @@ export function BriefServicesDescriptionBlock({
       id="briefServicesDescriptionBlock"
       className="section bg-background-secondary"
     >
-      <div className="container grid gap-4 lg:gap-12 lg:grid-cols-[1fr_35%]">
-        <div className="brief-services-description-top flex flex-col space-y-4">
-          <RichText className="prose-h2:mb-5 mb-4" richText={firstText} />
+      <div className="container">
+        <RichText
+          aria-hidden={true}
+          className="prose-h2:mb-5 mb-4 lg:hidden"
+          richText={firstText}
+        />
+        <div className="grid gap-4 lg:gap-12 md:grid-cols-[1fr_35%]">
           {images && images.length > 0 && (
-            <div className="md:grid md:grid-cols-[1fr_35%] gap-x-4 space-y-4 md:space-y-0 lg:block">
-              <SanityImage
-                className="md:shrink-0 md:h-full md:object-cover"
-                asset={images[0]}
-                alt={images[0]?.imageDescription || undefined}
-                width={767}
-                height={551}
-                quality={80}
-                sizes="(min-width: 1440px) 767px, (min-width: 1040px) 52.89vw, (min-width: 780px) calc(69.58vw - 60px), (min-width: 640px) calc(100vw - 96px), calc(100vw - 40px)"
-              />
-              <SanityImage
-                aria-hidden={true}
-                className="lg:hidden"
-                asset={images[1]}
-                width={671}
-                height={970}
-                quality={80}
-                alt={images[1]?.imageDescription || undefined}
-                sizes="(min-width: 780px) calc(35vw - 34px), (min-width: 640px) calc(100vw - 96px), calc(100vw - 40px)"
-              />
-            </div>
+            <>
+              <div className="md:flex lg:block">
+                <RichText
+                  className="prose-h2:mb-5 mb-4 hidden lg:block"
+                  richText={firstText}
+                />
+                <SanityImage
+                  className="md:object-cover lg:object-contain"
+                  asset={images[0]}
+                  alt={images[0]?.imageDescription || undefined}
+                  sizes="(min-width: 1440px) 768px, (min-width: 1040px) 53.42vw, (min-width: 780px) calc(78.33vw - 71px), (min-width: 640px) calc(100vw - 96px), calc(100vw - 40px)"
+                />
+              </div>
+              <div>
+                <SanityImage
+                  asset={images[1]}
+                  alt={images[1]?.imageDescription || undefined}
+                  sizes="(min-width: 1440px) 439px, (min-width: 780px) 31.25vw, (min-width: 640px) calc(100vw - 96px), calc(100vw - 40px)"
+                />
+                <RichText className="hidden lg:block" richText={secondText} />
+              </div>
+            </>
           )}
         </div>
-        <div className="brief-services-description-bottom flex flex-col lg:space-y-7">
-          {images && images[1] && (
-            <SanityImage
-              className="hidden lg:block"
-              asset={images[1]}
-              alt={images[1].imageDescription || undefined}
-              width={671}
-              height={970}
-              quality={80}
-              sizes="(max-width: 768px) 75vw, 25vw"
-            />
-          )}
-
-          <RichText richText={secondText} />
-        </div>
+        <RichText
+          className="lg:hidden"
+          aria-hidden={true}
+          richText={secondText}
+        />
       </div>
     </section>
   );
