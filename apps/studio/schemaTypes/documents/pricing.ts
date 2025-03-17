@@ -1,6 +1,7 @@
 import { defineField, defineType } from "sanity";
 import { extensibleRichText } from "../definitions/rich-text";
 import { Euro } from "lucide-react";
+import { createImageField } from "../definitions/image";
 
 export const pricing = defineType({
   name: "pricing",
@@ -27,13 +28,7 @@ export const pricing = defineType({
       },
       { styles: ["normal"], decorators: ["strong", "em"], lists: ["bullet"] },
     ),
-    defineField({
-      name: "image",
-      title: "Cover Image",
-      type: "image",
-      options: { hotspot: true },
-      validation: (Rule) => Rule.required(),
-    }),
+    createImageField({ validation: (Rule) => Rule.required() }),
   ],
   preview: {
     select: {

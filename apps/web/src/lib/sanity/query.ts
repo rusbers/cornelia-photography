@@ -4,6 +4,7 @@ import { defineQuery } from "next-sanity";
 const imageFragment = /* groq */ `
   image{
     ...,
+    imageDescription,
     "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),
     "blurData": asset->metadata.lqip,
     "dominantColor": asset->metadata.palette.dominant.background,

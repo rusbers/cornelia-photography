@@ -1,6 +1,7 @@
 import { defineField, defineType } from "sanity";
 import { MessageSquareQuote } from "lucide-react";
 import { extensibleRichText } from "../definitions/rich-text";
+import { createImageField } from "../definitions/image";
 
 export const testimonial = defineType({
   name: "testimonial",
@@ -28,13 +29,27 @@ export const testimonial = defineType({
       { name: "text", title: "Testimonial" },
       { styles: ["h3", "normal"], decorators: ["strong", "em"] },
     ),
-    defineField({
-      name: "image",
-      title: "Photo",
-      type: "image",
-      options: { hotspot: true },
-      validation: (Rule) => Rule.required(),
-    }),
+    createImageField({ validation: (Rule) => Rule.required() }),
+    // defineField({
+    //   name: "image",
+    //   title: "Image",
+    //   type: "image",
+    //   fields: [
+    //     defineField({
+    //       name: "imageDescription",
+    //       title: "Alternative Text",
+    //       type: "string",
+    //       description: "Describe the image for accessibility and SEO.",
+    //     }),
+    //   ],
+    //   options: {
+    //     hotspot: true,
+    //     aiAssist: {
+    //       imageDescriptionField: "imageDescription",
+    //     },
+    //   },
+    //   validation: (Rule) => Rule.required(),
+    // }),
   ],
   preview: {
     select: {

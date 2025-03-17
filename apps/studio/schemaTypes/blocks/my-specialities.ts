@@ -1,6 +1,7 @@
 import { Briefcase, User } from "lucide-react";
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { extensibleRichText } from "../definitions/rich-text";
+import { createImagesField } from "../definitions/images";
 
 export const mySpecialities = defineType({
   name: "mySpecialities",
@@ -35,24 +36,32 @@ export const mySpecialities = defineType({
         decorators: ["strong", "em", "uppercase"],
       },
     ),
-    defineField({
-      name: "images",
-      title: "Images",
+    createImagesField({
       description: "Upload 2 vertical images to mentain the section structure.",
-      type: "array",
-      of: [
-        defineArrayMember({
-          type: "image",
-          options: { hotspot: true },
-        }),
-      ],
-      options: { layout: "grid" },
       validation: (Rule) =>
         Rule.required()
           .min(2)
           .max(2)
           .warning("You must upload 2 vertical images."),
     }),
+    // defineField({
+    //   name: "images",
+    //   title: "Images",
+    //   description: "Upload 2 vertical images to mentain the section structure.",
+    //   type: "array",
+    //   of: [
+    //     defineArrayMember({
+    //       type: "image",
+    //       options: { hotspot: true },
+    //     }),
+    //   ],
+    //   options: { layout: "grid" },
+    //   validation: (Rule) =>
+    //     Rule.required()
+    //       .min(2)
+    //       .max(2)
+    //       .warning("You must upload 2 vertical images."),
+    // }),
     defineField({ name: "button", type: "button" }),
   ],
   preview: {

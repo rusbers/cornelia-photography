@@ -46,6 +46,7 @@ export function TestimonialListBlock({
                     <SanityImage
                       className="size-32 md:size-48 lg:h-full lg:w-[17.5rem] shadow-2xl md:shadow-sm aspect-square lg:aspect-[280/420] object-cover rounded-full lg:rounded-none"
                       asset={testimonial.image}
+                      alt={testimonial.image?.imageDescription || undefined}
                       width={280}
                       height={420}
                       quality={75}

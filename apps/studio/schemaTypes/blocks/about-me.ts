@@ -1,6 +1,7 @@
 import { User } from "lucide-react";
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { extensibleRichText } from "../definitions/rich-text";
+import { createImageField } from "../definitions/image";
 
 export const aboutMe = defineType({
   name: "aboutMe",
@@ -28,12 +29,9 @@ export const aboutMe = defineType({
         decorators: ["strong", "em", "uppercase"],
       },
     ),
-    defineField({
-      name: "image",
-      title: "Your photo",
-      type: "image",
-      description: "Upload up to 2 images that best represent you.",
-      options: { hotspot: true },
+    createImageField({
+      description: "Upload an image that best represent you.",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({ name: "button", type: "button" }),
   ],
