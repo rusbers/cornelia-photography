@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 import { extensibleRichText } from "../definitions/rich-text";
+import { createImagesField } from "../definitions/images";
 
 export const hero = defineType({
   name: "hero",
@@ -22,17 +23,7 @@ export const hero = defineType({
         lists: ["bullet", "number"],
       },
     ),
-    defineField({
-      name: "images",
-      title: "Images",
-      type: "array",
-      of: [
-        defineArrayMember({
-          type: "image",
-          options: { hotspot: true },
-        }),
-      ],
-      options: { layout: "grid" },
+    createImagesField({
       description:
         "Upload up to 2 vertical images to mentain the section structure.",
       validation: (Rule) =>

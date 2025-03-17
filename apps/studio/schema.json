@@ -4175,6 +4175,13 @@
                   },
                   "optional": true
                 },
+                "imageDescription": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  },
+                  "optional": true
+                },
                 "_type": {
                   "type": "objectAttribute",
                   "value": {

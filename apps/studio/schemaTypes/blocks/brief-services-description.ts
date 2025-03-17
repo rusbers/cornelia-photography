@@ -1,6 +1,7 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineType } from "sanity";
 import { BriefcaseBusiness } from "lucide-react";
 import { extensibleRichText } from "../definitions/rich-text";
+import { createImagesField } from "../definitions/images";
 
 export const briefServicesDescription = defineType({
   name: "briefServicesDescription",
@@ -18,17 +19,7 @@ export const briefServicesDescription = defineType({
       { name: "secondText", title: "Secondary text" },
       { styles: ["normal"], lists: [], decorators: ["strong", "em", "small"] },
     ),
-    defineField({
-      name: "images",
-      title: "Images",
-      type: "array",
-      of: [
-        defineArrayMember({
-          type: "image",
-          options: { hotspot: true },
-        }),
-      ],
-      options: { layout: "grid" },
+    createImagesField({
       description:
         "Upload two images: one horizontal and one vertical to maintain the section's structure.",
       validation: (Rule) =>

@@ -23,6 +23,7 @@ export function BriefServicesDescriptionBlock({
               <SanityImage
                 className="md:shrink-0 md:h-full md:object-cover"
                 asset={images[0]}
+                alt={images[0]?.imageDescription || undefined}
                 width={767}
                 height={551}
                 quality={80}
@@ -35,6 +36,7 @@ export function BriefServicesDescriptionBlock({
                 width={671}
                 height={970}
                 quality={80}
+                alt={images[1]?.imageDescription || undefined}
                 sizes="(min-width: 780px) calc(35vw - 34px), (min-width: 640px) calc(100vw - 96px), calc(100vw - 40px)"
               />
             </div>
@@ -45,6 +47,7 @@ export function BriefServicesDescriptionBlock({
             <SanityImage
               className="hidden lg:block"
               asset={images[1]}
+              alt={images[1].imageDescription || undefined}
               width={671}
               height={970}
               quality={80}

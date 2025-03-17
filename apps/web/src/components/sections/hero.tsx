@@ -46,6 +46,7 @@ const SingleImageComponent = ({
   images: HeroBlockProps["images"];
 }) => {
   if (!images || images.length !== 1) return null;
+  console.log(images);
 
   return (
     <div
@@ -61,6 +62,7 @@ const SingleImageComponent = ({
         width={623}
         height={945}
         quality={75}
+        alt={images[0]?.imageDescription || undefined}
         priority
         sizes="(min-width: 1560px) 309px, (min-width: 1280px) calc(8.46vw + 179px), (min-width: 1040px) calc(40vw - 66px), (min-width: 640px) calc(50vw - 86px), (min-width: 520px) 422px, calc(95vw - 53px)"
       />
@@ -94,6 +96,7 @@ const MultipleImagesComponent = ({
           height={945}
           quality={75}
           priority
+          alt={image.imageDescription || undefined}
           sizes="(min-width: 1560px) 309px, (min-width: 1280px) calc(8.46vw + 179px), (min-width: 1040px) calc(40vw - 66px), (min-width: 640px) calc(50vw - 86px), (min-width: 520px) 422px, calc(95vw - 53px)"
         />
       ))}
