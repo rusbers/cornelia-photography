@@ -1,25 +1,23 @@
 import { Loader2 } from "lucide-react";
-import { useFormStatus } from "react-dom";
 
 type SubmitButtonProps = {
   isSuccess: boolean;
   isError: boolean;
+  isSubmitting: boolean;
 };
 
-export const SubmitButton = ({ isSuccess, isError }: SubmitButtonProps) => {
-  const { pending } = useFormStatus();
-
+export const SubmitButton = ({
+  isSuccess,
+  isError,
+  isSubmitting,
+}: SubmitButtonProps) => {
   return (
     <button
-      disabled={pending}
-      className="button mx-auto self-center md:col-span-full"
+      disabled={isSubmitting}
+      className="button mx-auto self-center md:col-span-full min-w-[13.4375rem] px-5"
     >
-      {pending && <Loader2 className="animate-spin text-white" />}
-      {isSuccess
-        ? "Submitted"
-        : isError
-          ? "Something went wrong"
-          : "Let's talk"}
+      {isSubmitting && <Loader2 className="animate-spin text-white size-4" />}
+      {isSuccess ? "Submitted" : isError ? "Error, try again" : "Let's talk"}
     </button>
   );
 };
